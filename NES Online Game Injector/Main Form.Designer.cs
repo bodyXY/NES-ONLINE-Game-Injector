@@ -48,7 +48,6 @@
             this.CopyrightTextbox = new System.Windows.Forms.TextBox();
             this.GametitleTextbox = new System.Windows.Forms.TextBox();
             this.OverscanTextbox = new System.Windows.Forms.TextBox();
-            this.SimuTextbox = new System.Windows.Forms.TextBox();
             this.FadeinTextbox = new System.Windows.Forms.TextBox();
             this.VolumeTextbox = new System.Windows.Forms.TextBox();
             this.GamepathTextbox = new System.Windows.Forms.TextBox();
@@ -61,6 +60,11 @@
             this.GameBrowse = new MaterialSkin.Controls.MaterialFlatButton();
             this.InjectButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.OverscanTextbox2 = new System.Windows.Forms.TextBox();
+            this.OverscanTextbox3 = new System.Windows.Forms.TextBox();
+            this.OverscanTextbox4 = new System.Windows.Forms.TextBox();
+            this.FadeinTextbox2 = new System.Windows.Forms.TextBox();
+            this.SimultanusTextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +74,7 @@
             this.TitleLabel.Depth = 0;
             this.TitleLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.TitleLabel.Location = new System.Drawing.Point(50, 80);
+            this.TitleLabel.Location = new System.Drawing.Point(81, 80);
             this.TitleLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(75, 19);
@@ -83,7 +87,7 @@
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel10.Location = new System.Drawing.Point(50, 110);
+            this.materialLabel10.Location = new System.Drawing.Point(81, 113);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
             this.materialLabel10.Size = new System.Drawing.Size(75, 19);
@@ -96,7 +100,7 @@
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel11.Location = new System.Drawing.Point(50, 140);
+            this.materialLabel11.Location = new System.Drawing.Point(69, 146);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
             this.materialLabel11.Size = new System.Drawing.Size(87, 19);
@@ -109,7 +113,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(50, 170);
+            this.materialLabel1.Location = new System.Drawing.Point(83, 179);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(73, 19);
@@ -122,7 +126,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(50, 200);
+            this.materialLabel2.Location = new System.Drawing.Point(70, 212);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(86, 19);
@@ -135,7 +139,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(50, 230);
+            this.materialLabel3.Location = new System.Drawing.Point(81, 245);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(75, 19);
@@ -148,7 +152,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(50, 260);
+            this.materialLabel4.Location = new System.Drawing.Point(68, 278);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(88, 19);
@@ -161,7 +165,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(50, 291);
+            this.materialLabel5.Location = new System.Drawing.Point(99, 311);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(57, 19);
@@ -174,7 +178,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(50, 321);
+            this.materialLabel6.Location = new System.Drawing.Point(91, 344);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(65, 19);
@@ -187,7 +191,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(50, 369);
+            this.materialLabel7.Location = new System.Drawing.Point(71, 387);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(85, 19);
@@ -200,7 +204,7 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(50, 417);
+            this.materialLabel8.Location = new System.Drawing.Point(12, 435);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(144, 19);
@@ -213,7 +217,7 @@
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel12.Location = new System.Drawing.Point(50, 463);
+            this.materialLabel12.Location = new System.Drawing.Point(12, 483);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
             this.materialLabel12.Size = new System.Drawing.Size(144, 19);
@@ -226,7 +230,7 @@
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel13.Location = new System.Drawing.Point(50, 510);
+            this.materialLabel13.Location = new System.Drawing.Point(57, 531);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
             this.materialLabel13.Size = new System.Drawing.Size(99, 19);
@@ -236,105 +240,97 @@
             // SortTitleTextbox
             // 
             this.SortTitleTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.SortTitleTextbox.Location = new System.Drawing.Point(235, 77);
+            this.SortTitleTextbox.Location = new System.Drawing.Point(162, 77);
             this.SortTitleTextbox.Name = "SortTitleTextbox";
-            this.SortTitleTextbox.Size = new System.Drawing.Size(315, 27);
+            this.SortTitleTextbox.Size = new System.Drawing.Size(202, 27);
             this.SortTitleTextbox.TabIndex = 1;
             // 
             // PublisherTextbox
             // 
             this.PublisherTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.PublisherTextbox.Location = new System.Drawing.Point(235, 107);
+            this.PublisherTextbox.Location = new System.Drawing.Point(162, 110);
             this.PublisherTextbox.Name = "PublisherTextbox";
-            this.PublisherTextbox.Size = new System.Drawing.Size(315, 27);
+            this.PublisherTextbox.Size = new System.Drawing.Size(202, 27);
             this.PublisherTextbox.TabIndex = 1;
             // 
             // GamecodeTextbox
             // 
             this.GamecodeTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.GamecodeTextbox.Location = new System.Drawing.Point(235, 137);
+            this.GamecodeTextbox.Location = new System.Drawing.Point(162, 143);
             this.GamecodeTextbox.Name = "GamecodeTextbox";
-            this.GamecodeTextbox.Size = new System.Drawing.Size(315, 27);
+            this.GamecodeTextbox.Size = new System.Drawing.Size(202, 27);
             this.GamecodeTextbox.TabIndex = 1;
             // 
             // CopyrightTextbox
             // 
             this.CopyrightTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.CopyrightTextbox.Location = new System.Drawing.Point(235, 167);
+            this.CopyrightTextbox.Location = new System.Drawing.Point(162, 176);
             this.CopyrightTextbox.Name = "CopyrightTextbox";
-            this.CopyrightTextbox.Size = new System.Drawing.Size(315, 27);
+            this.CopyrightTextbox.Size = new System.Drawing.Size(202, 27);
             this.CopyrightTextbox.TabIndex = 1;
             // 
             // GametitleTextbox
             // 
             this.GametitleTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.GametitleTextbox.Location = new System.Drawing.Point(235, 197);
+            this.GametitleTextbox.Location = new System.Drawing.Point(162, 209);
             this.GametitleTextbox.Name = "GametitleTextbox";
-            this.GametitleTextbox.Size = new System.Drawing.Size(315, 27);
+            this.GametitleTextbox.Size = new System.Drawing.Size(202, 27);
             this.GametitleTextbox.TabIndex = 1;
             // 
             // OverscanTextbox
             // 
             this.OverscanTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.OverscanTextbox.Location = new System.Drawing.Point(235, 227);
+            this.OverscanTextbox.Location = new System.Drawing.Point(162, 242);
             this.OverscanTextbox.Name = "OverscanTextbox";
-            this.OverscanTextbox.Size = new System.Drawing.Size(315, 27);
+            this.OverscanTextbox.Size = new System.Drawing.Size(26, 27);
             this.OverscanTextbox.TabIndex = 1;
-            // 
-            // SimuTextbox
-            // 
-            this.SimuTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.SimuTextbox.Location = new System.Drawing.Point(235, 257);
-            this.SimuTextbox.Name = "SimuTextbox";
-            this.SimuTextbox.Size = new System.Drawing.Size(315, 27);
-            this.SimuTextbox.TabIndex = 1;
             // 
             // FadeinTextbox
             // 
             this.FadeinTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.FadeinTextbox.Location = new System.Drawing.Point(235, 288);
+            this.FadeinTextbox.Location = new System.Drawing.Point(162, 308);
             this.FadeinTextbox.Name = "FadeinTextbox";
-            this.FadeinTextbox.Size = new System.Drawing.Size(315, 27);
+            this.FadeinTextbox.Size = new System.Drawing.Size(26, 27);
             this.FadeinTextbox.TabIndex = 1;
             // 
             // VolumeTextbox
             // 
             this.VolumeTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.VolumeTextbox.Location = new System.Drawing.Point(235, 318);
+            this.VolumeTextbox.Location = new System.Drawing.Point(162, 341);
             this.VolumeTextbox.Name = "VolumeTextbox";
-            this.VolumeTextbox.Size = new System.Drawing.Size(315, 27);
+            this.VolumeTextbox.Size = new System.Drawing.Size(202, 27);
             this.VolumeTextbox.TabIndex = 1;
             // 
             // GamepathTextbox
             // 
             this.GamepathTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.GamepathTextbox.Location = new System.Drawing.Point(235, 366);
+            this.GamepathTextbox.Location = new System.Drawing.Point(162, 384);
             this.GamepathTextbox.Name = "GamepathTextbox";
-            this.GamepathTextbox.Size = new System.Drawing.Size(315, 27);
+            this.GamepathTextbox.Size = new System.Drawing.Size(202, 27);
             this.GamepathTextbox.TabIndex = 1;
             // 
             // Coverpath1Textbox
             // 
             this.Coverpath1Textbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.Coverpath1Textbox.Location = new System.Drawing.Point(235, 414);
+            this.Coverpath1Textbox.Location = new System.Drawing.Point(162, 432);
             this.Coverpath1Textbox.Name = "Coverpath1Textbox";
-            this.Coverpath1Textbox.Size = new System.Drawing.Size(315, 27);
+            this.Coverpath1Textbox.Size = new System.Drawing.Size(202, 27);
             this.Coverpath1Textbox.TabIndex = 1;
             // 
             // Coverpath2Textbox
             // 
             this.Coverpath2Textbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.Coverpath2Textbox.Location = new System.Drawing.Point(235, 460);
+            this.Coverpath2Textbox.Location = new System.Drawing.Point(162, 480);
             this.Coverpath2Textbox.Name = "Coverpath2Textbox";
-            this.Coverpath2Textbox.Size = new System.Drawing.Size(315, 27);
+            this.Coverpath2Textbox.Size = new System.Drawing.Size(202, 27);
             this.Coverpath2Textbox.TabIndex = 1;
             // 
             // TitledbTextbox
             // 
             this.TitledbTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.TitledbTextbox.Location = new System.Drawing.Point(235, 507);
+            this.TitledbTextbox.Location = new System.Drawing.Point(162, 528);
             this.TitledbTextbox.Name = "TitledbTextbox";
-            this.TitledbTextbox.Size = new System.Drawing.Size(315, 27);
+            this.TitledbTextbox.Size = new System.Drawing.Size(202, 27);
             this.TitledbTextbox.TabIndex = 1;
             // 
             // Coverpath2BrowseButton
@@ -343,7 +339,7 @@
             this.Coverpath2BrowseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Coverpath2BrowseButton.Depth = 0;
             this.Coverpath2BrowseButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.Coverpath2BrowseButton.Location = new System.Drawing.Point(617, 455);
+            this.Coverpath2BrowseButton.Location = new System.Drawing.Point(410, 475);
             this.Coverpath2BrowseButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Coverpath2BrowseButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.Coverpath2BrowseButton.Name = "Coverpath2BrowseButton";
@@ -360,7 +356,7 @@
             this.Coverpath1BrowseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Coverpath1BrowseButton.Depth = 0;
             this.Coverpath1BrowseButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.Coverpath1BrowseButton.Location = new System.Drawing.Point(617, 409);
+            this.Coverpath1BrowseButton.Location = new System.Drawing.Point(410, 427);
             this.Coverpath1BrowseButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Coverpath1BrowseButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.Coverpath1BrowseButton.Name = "Coverpath1BrowseButton";
@@ -377,7 +373,7 @@
             this.TitledbBrowseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TitledbBrowseButton.Depth = 0;
             this.TitledbBrowseButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.TitledbBrowseButton.Location = new System.Drawing.Point(617, 502);
+            this.TitledbBrowseButton.Location = new System.Drawing.Point(410, 523);
             this.TitledbBrowseButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TitledbBrowseButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.TitledbBrowseButton.Name = "TitledbBrowseButton";
@@ -394,7 +390,7 @@
             this.GameBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GameBrowse.Depth = 0;
             this.GameBrowse.Font = new System.Drawing.Font("Roboto", 9F);
-            this.GameBrowse.Location = new System.Drawing.Point(617, 361);
+            this.GameBrowse.Location = new System.Drawing.Point(410, 379);
             this.GameBrowse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.GameBrowse.MouseState = MaterialSkin.MouseState.HOVER;
             this.GameBrowse.Name = "GameBrowse";
@@ -410,7 +406,7 @@
             this.InjectButton.AutoSize = true;
             this.InjectButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.InjectButton.Depth = 0;
-            this.InjectButton.Location = new System.Drawing.Point(65, 590);
+            this.InjectButton.Location = new System.Drawing.Point(36, 601);
             this.InjectButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.InjectButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.InjectButton.Name = "InjectButton";
@@ -425,19 +421,59 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(195, 555);
+            this.pictureBox1.Location = new System.Drawing.Point(122, 573);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(387, 115);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // OverscanTextbox2
+            // 
+            this.OverscanTextbox2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.OverscanTextbox2.Location = new System.Drawing.Point(194, 242);
+            this.OverscanTextbox2.Name = "OverscanTextbox2";
+            this.OverscanTextbox2.Size = new System.Drawing.Size(26, 27);
+            this.OverscanTextbox2.TabIndex = 1;
+            // 
+            // OverscanTextbox3
+            // 
+            this.OverscanTextbox3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.OverscanTextbox3.Location = new System.Drawing.Point(226, 242);
+            this.OverscanTextbox3.Name = "OverscanTextbox3";
+            this.OverscanTextbox3.Size = new System.Drawing.Size(26, 27);
+            this.OverscanTextbox3.TabIndex = 1;
+            // 
+            // OverscanTextbox4
+            // 
+            this.OverscanTextbox4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.OverscanTextbox4.Location = new System.Drawing.Point(258, 242);
+            this.OverscanTextbox4.Name = "OverscanTextbox4";
+            this.OverscanTextbox4.Size = new System.Drawing.Size(26, 27);
+            this.OverscanTextbox4.TabIndex = 1;
+            // 
+            // FadeinTextbox2
+            // 
+            this.FadeinTextbox2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.FadeinTextbox2.Location = new System.Drawing.Point(194, 308);
+            this.FadeinTextbox2.Name = "FadeinTextbox2";
+            this.FadeinTextbox2.Size = new System.Drawing.Size(26, 27);
+            this.FadeinTextbox2.TabIndex = 1;
+            // 
+            // SimultanusTextbox
+            // 
+            this.SimultanusTextbox.Font = new System.Drawing.Font("Roboto", 11F);
+            this.SimultanusTextbox.Location = new System.Drawing.Point(162, 275);
+            this.SimultanusTextbox.Name = "SimultanusTextbox";
+            this.SimultanusTextbox.Size = new System.Drawing.Size(202, 27);
+            this.SimultanusTextbox.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 700);
+            this.ClientSize = new System.Drawing.Size(550, 700);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.InjectButton);
             this.Controls.Add(this.GameBrowse);
@@ -449,9 +485,13 @@
             this.Controls.Add(this.Coverpath1Textbox);
             this.Controls.Add(this.GamepathTextbox);
             this.Controls.Add(this.VolumeTextbox);
+            this.Controls.Add(this.FadeinTextbox2);
             this.Controls.Add(this.FadeinTextbox);
-            this.Controls.Add(this.SimuTextbox);
+            this.Controls.Add(this.OverscanTextbox4);
+            this.Controls.Add(this.OverscanTextbox3);
+            this.Controls.Add(this.OverscanTextbox2);
             this.Controls.Add(this.OverscanTextbox);
+            this.Controls.Add(this.SimultanusTextbox);
             this.Controls.Add(this.GametitleTextbox);
             this.Controls.Add(this.CopyrightTextbox);
             this.Controls.Add(this.GamecodeTextbox);
@@ -470,8 +510,8 @@
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.TitleLabel);
-            this.MaximumSize = new System.Drawing.Size(750, 700);
-            this.MinimumSize = new System.Drawing.Size(750, 700);
+            this.MaximumSize = new System.Drawing.Size(550, 700);
+            this.MinimumSize = new System.Drawing.Size(550, 700);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NES Online Game Autoinjector";
@@ -502,7 +542,6 @@
         private System.Windows.Forms.TextBox CopyrightTextbox;
         private System.Windows.Forms.TextBox GametitleTextbox;
         private System.Windows.Forms.TextBox OverscanTextbox;
-        private System.Windows.Forms.TextBox SimuTextbox;
         private System.Windows.Forms.TextBox FadeinTextbox;
         private System.Windows.Forms.TextBox VolumeTextbox;
         private System.Windows.Forms.TextBox GamepathTextbox;
@@ -515,6 +554,11 @@
         private MaterialSkin.Controls.MaterialFlatButton GameBrowse;
         private MaterialSkin.Controls.MaterialFlatButton InjectButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox OverscanTextbox2;
+        private System.Windows.Forms.TextBox OverscanTextbox3;
+        private System.Windows.Forms.TextBox OverscanTextbox4;
+        private System.Windows.Forms.TextBox FadeinTextbox2;
+        private System.Windows.Forms.TextBox SimultanusTextbox;
     }
 }
 

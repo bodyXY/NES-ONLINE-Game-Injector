@@ -108,17 +108,68 @@ namespace NES_Online_Game_Injector
             }
             else if (OverscanTextbox.Text == string.Empty)
             {
-                MessageBox.Show("Enter the Overscan", "Error.", MessageBoxButtons.OK);
+                MessageBox.Show("Enter the Overscan box 1", "Error.", MessageBoxButtons.OK);
                 return;
             }
-            else if (SimuTextbox.Text == string.Empty)
+            else if (OverscanTextbox.Text.Length < 1 || OverscanTextbox.Text.Length > 1)
             {
-                MessageBox.Show("Enter the Simultanus", "Error.", MessageBoxButtons.OK);
+                MessageBox.Show("Enter the Overscan box 1 between (0 and 9)", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (OverscanTextbox2.Text == string.Empty)
+            {
+                MessageBox.Show("Enter the Overscan box 2", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (OverscanTextbox2.Text.Length < 1 || OverscanTextbox2.Text.Length > 1)
+            {
+                MessageBox.Show("Enter the Overscan box 2 between (0 and 9)", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (OverscanTextbox3.Text == string.Empty)
+            {
+                MessageBox.Show("Enter the Overscan box 3", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (OverscanTextbox3.Text.Length < 1 || OverscanTextbox3.Text.Length > 1)
+            {
+                MessageBox.Show("Enter the Overscan box 3 between (0 and 9)", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (OverscanTextbox4.Text == string.Empty)
+            {
+                MessageBox.Show("Enter the Overscan box 4", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (SimultanusTextbox.Text == string.Empty)
+            {
+                MessageBox.Show("Enter the Simultanus (true or false)", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+
+            else if (OverscanTextbox4.Text.Length < 1 || OverscanTextbox4.Text.Length > 1)
+            {
+                MessageBox.Show("Enter the Overscan box 4 between (0 and 9)", "Error.", MessageBoxButtons.OK);
                 return;
             }
             else if (FadeinTextbox.Text == string.Empty)
             {
-                MessageBox.Show("Enter the Fade In", "Error.", MessageBoxButtons.OK);
+                MessageBox.Show("Enter the Fade In box 1", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (FadeinTextbox.Text.Length < 1 || FadeinTextbox.Text.Length > 1)
+            {
+                MessageBox.Show("Enter the Fade In box 1 between (0 and 9)", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (FadeinTextbox2.Text == string.Empty)
+            {
+                MessageBox.Show("Enter the Fade In box 2", "Error.", MessageBoxButtons.OK);
+                return;
+            }
+            else if (FadeinTextbox2.Text.Length < 1 || FadeinTextbox2.Text.Length > 1)
+            {
+                MessageBox.Show("Enter the Fade In box 2 between (0 and 9)", "Error.", MessageBoxButtons.OK);
                 return;
             }
             else if (VolumeTextbox.Text.Length < 1 || VolumeTextbox.Text.Length > 2)
@@ -151,6 +202,53 @@ namespace NES_Online_Game_Injector
                 MessageBox.Show("Invalid Title DB path", "Error.", MessageBoxButtons.OK);
                 return;
             }
+            
+            string filecheck = "cover.tga";
+            if (File.Exists(filecheck))
+            {
+                File.Delete(@"cover.tga");
+            }
+            string filecheck2 = "screenshot.tga";
+            if (File.Exists(filecheck2))
+            {
+                File.Delete(@"screenshot.tga");
+            }
+            string filecheck3 = "cover.xtx";
+            if (File.Exists(filecheck3))
+            {
+                File.Delete(@"cover.xtx");
+            }
+            string filecheck4 = "screenshot.xtx";
+            if (File.Exists(filecheck4))
+            {
+                File.Delete(@"screenshot.xtx");
+            }
+            string filecheck5 = "NES_ONLINE_Mod/romfs/titles/" + GamecodeTextbox.Text + "\\" + GamecodeTextbox.Text + ".xtx.z";
+            if (File.Exists(filecheck5))
+            {
+                File.Delete("NES_ONLINE_Mod/romfs/titles/" + GamecodeTextbox.Text + "\\" + GamecodeTextbox.Text + ".xtx.z");
+            }
+            string filecheck6 = "NES_ONLINE_Mod/romfs/titles/" + GamecodeTextbox.Text + "\\" + GamecodeTextbox.Text + "00.xtx.z";
+            if (File.Exists(filecheck6))
+            {
+                File.Delete("NES_ONLINE_Mod/romfs/titles/" + GamecodeTextbox.Text + "\\" + GamecodeTextbox.Text + "00.xtx.z");
+            }
+            string filecheck7 = "cover.xtx.zlib/";
+            if (File.Exists(filecheck7))
+            {
+                File.Delete(@"cover.xtx.zlib");
+            }
+            string filecheck8 = "screenshot.xtx.zlib/";
+            if (File.Exists(filecheck8))
+            {
+                File.Delete(@"screenshot.xtx.zlib");
+            }
+            string filecheck9 = "NES_ONLINE_Mod/romfs/titles/" + GamecodeTextbox.Text + "\\" + GamecodeTextbox.Text + ".nes";
+            if (File.Exists(filecheck9))
+            {
+                File.Delete("NES_ONLINE_Mod/romfs/titles/" + GamecodeTextbox.Text + "\\" + GamecodeTextbox.Text + ".nes");
+            }
+
 
             File.Move(@Coverpath1Textbox.Text, "cover.tga");
             File.Move(@Coverpath2Textbox.Text, "screenshot.tga");
@@ -175,10 +273,9 @@ namespace NES_Online_Game_Injector
 
             File.Move(@GamepathTextbox.Text, "NES_ONLINE_Mod/romfs/titles/" + GamecodeTextbox.Text + "\\" + GamecodeTextbox.Text + ".nes");
 
-            File.Move(@TitledbTextbox.Text, "NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb");
 
-            string filecheck = "NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb";
-            if (File.Exists(filecheck))
+            string filecheck10 = "NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb";
+            if (File.Exists(filecheck10))
             {
                 var lines = File.ReadAllLines("NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb");
                 File.WriteAllLines("NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb", lines.Take(lines.Length - 2).ToArray());
@@ -196,13 +293,49 @@ namespace NES_Online_Game_Injector
                     db.WriteLine("            \"volume\": " + VolumeTextbox.Text + ",");
                     db.WriteLine("            \"release_date\": \"1987-12-01\",");
                     db.WriteLine("            \"players_count\": 1,");
-                    db.WriteLine("            \"cover\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-"+ GamecodeTextbox.Text + ".xtx.z,");
-                    db.WriteLine("            \"overscan\": [" + OverscanTextbox.Text + "],");
+                    db.WriteLine("            \"cover\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + ".xtx.z,");
+                    db.WriteLine("            \"overscan\": [" + OverscanTextbox.Text + ", " + OverscanTextbox2.Text + ", " + OverscanTextbox3.Text + ", " + OverscanTextbox4.Text + "],");
                     db.WriteLine("            \"armet_version\": \"v1\",");
                     db.WriteLine("            \"lcla6_release_date\": \"2018-09-01\",");
                     db.WriteLine("            \"save_count\": 0,");
-                    db.WriteLine("            \"simultaneous\":" + SimuTextbox.Text + ",");
-                    db.WriteLine("            \"fadein\": [" + FadeinTextbox.Text + "],");
+                    db.WriteLine("            \"simultaneous\": " + "" + SimultanusTextbox.Text + ",");
+                    db.WriteLine("            \"fadein\": [" + FadeinTextbox.Text + " ," + FadeinTextbox2.Text + "],");
+                    db.WriteLine("            \"details_screen\": \"\",");
+                    db.WriteLine("            \"armet_threshold\": 80,");
+                    db.WriteLine("            \"sort_publisher\": \"" + PublisherTextbox.Text + "\"");
+                    db.WriteLine("        }");
+                    db.WriteLine("    ]");
+                    db.WriteLine("}");
+                    db.Close();
+                }
+            }
+            else
+            {
+                File.Move(@TitledbTextbox.Text, "NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb");
+
+                var lines2 = File.ReadAllLines("NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb");
+                File.WriteAllLines("NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb", lines2.Take(lines2.Length - 2).ToArray());
+
+                using (StreamWriter db = new FileInfo("NES_ONLINE_Mod/romfs/titles/lclassics.titlesdb").AppendText())
+                {
+                    db.WriteLine("        ,");
+                    db.WriteLine("        {");
+                    db.WriteLine("            \"sort_title\": \"" + SortTitleTextbox.Text + "\",");
+                    db.WriteLine("            \"publisher\": \"" + PublisherTextbox.Text + "\",");
+                    db.WriteLine("            \"code\": \"CLV-H-" + GamecodeTextbox.Text + "\",");
+                    db.WriteLine("            \"rom\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + ".nes\",");
+                    db.WriteLine("            \"copyright\": \"" + CopyrightTextbox.Text + "\",");
+                    db.WriteLine("            \"title\": \"" + GametitleTextbox.Text + "\",");
+                    db.WriteLine("            \"volume\": " + VolumeTextbox.Text + ",");
+                    db.WriteLine("            \"release_date\": \"1987-12-01\",");
+                    db.WriteLine("            \"players_count\": 1,");
+                    db.WriteLine("            \"cover\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + ".xtx.z,");
+                    db.WriteLine("            \"overscan\": [" + OverscanTextbox.Text + ", " + OverscanTextbox2.Text + ", " + OverscanTextbox3.Text + ", " + OverscanTextbox4.Text + "],");
+                    db.WriteLine("            \"armet_version\": \"v1\",");
+                    db.WriteLine("            \"lcla6_release_date\": \"2018-09-01\",");
+                    db.WriteLine("            \"save_count\": 0,");
+                    db.WriteLine("            \"simultaneous\":" + "" + SimultanusTextbox.Text + ",");
+                    db.WriteLine("            \"fadein\": [" + FadeinTextbox.Text + " ," + FadeinTextbox2.Text + "],");
                     db.WriteLine("            \"details_screen\": \"\",");
                     db.WriteLine("            \"armet_threshold\": 80,");
                     db.WriteLine("            \"sort_publisher\": \"" + PublisherTextbox.Text + "\"");
