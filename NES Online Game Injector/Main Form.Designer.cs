@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.TitleLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
@@ -65,6 +66,24 @@
             this.OverscanTextbox4 = new System.Windows.Forms.TextBox();
             this.FadeinTextbox2 = new System.Windows.Forms.TextBox();
             this.SimultanusTextbox = new System.Windows.Forms.TextBox();
+            this.infoSorttitle = new MaterialSkin.Controls.MaterialLabel();
+            this.toolTipSorttitle = new System.Windows.Forms.ToolTip(this.components);
+            this.infoPublisher = new MaterialSkin.Controls.MaterialLabel();
+            this.toolTipPublisher = new System.Windows.Forms.ToolTip(this.components);
+            this.infoGamecode = new MaterialSkin.Controls.MaterialLabel();
+            this.infoCopyright = new MaterialSkin.Controls.MaterialLabel();
+            this.infoGametitle = new MaterialSkin.Controls.MaterialLabel();
+            this.infoOverscan = new MaterialSkin.Controls.MaterialLabel();
+            this.infoSimultanus = new MaterialSkin.Controls.MaterialLabel();
+            this.infoFadein = new MaterialSkin.Controls.MaterialLabel();
+            this.toolTipCopyright = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipGametitle = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipOverscan = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipSimultanus = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipFadein = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipGamecode = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipVolume = new System.Windows.Forms.ToolTip(this.components);
+            this.infoVolume = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -468,12 +487,179 @@
             this.SimultanusTextbox.Size = new System.Drawing.Size(202, 27);
             this.SimultanusTextbox.TabIndex = 1;
             // 
+            // infoSorttitle
+            // 
+            this.infoSorttitle.AutoSize = true;
+            this.infoSorttitle.BackColor = System.Drawing.Color.Transparent;
+            this.infoSorttitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoSorttitle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoSorttitle.Depth = 0;
+            this.infoSorttitle.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoSorttitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoSorttitle.Location = new System.Drawing.Point(370, 80);
+            this.infoSorttitle.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoSorttitle.Name = "infoSorttitle";
+            this.infoSorttitle.Size = new System.Drawing.Size(37, 21);
+            this.infoSorttitle.TabIndex = 5;
+            this.infoSorttitle.Text = "Info";
+            this.infoSorttitle.Click += new System.EventHandler(this.infoSorttitle_Click);
+            // 
+            // toolTipSorttitle
+            // 
+            this.toolTipSorttitle.BackColor = System.Drawing.Color.Black;
+            this.toolTipSorttitle.ForeColor = System.Drawing.Color.White;
+            // 
+            // infoPublisher
+            // 
+            this.infoPublisher.AutoSize = true;
+            this.infoPublisher.BackColor = System.Drawing.Color.Transparent;
+            this.infoPublisher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoPublisher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoPublisher.Depth = 0;
+            this.infoPublisher.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoPublisher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoPublisher.Location = new System.Drawing.Point(370, 113);
+            this.infoPublisher.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoPublisher.Name = "infoPublisher";
+            this.infoPublisher.Size = new System.Drawing.Size(37, 21);
+            this.infoPublisher.TabIndex = 6;
+            this.infoPublisher.Text = "Info";
+            this.infoPublisher.Click += new System.EventHandler(this.infoPublisher_Click);
+            // 
+            // infoGamecode
+            // 
+            this.infoGamecode.AutoSize = true;
+            this.infoGamecode.BackColor = System.Drawing.Color.Transparent;
+            this.infoGamecode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoGamecode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoGamecode.Depth = 0;
+            this.infoGamecode.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoGamecode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoGamecode.Location = new System.Drawing.Point(370, 146);
+            this.infoGamecode.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoGamecode.Name = "infoGamecode";
+            this.infoGamecode.Size = new System.Drawing.Size(37, 21);
+            this.infoGamecode.TabIndex = 7;
+            this.infoGamecode.Text = "Info";
+            this.infoGamecode.Click += new System.EventHandler(this.infoGamecode_Click);
+            // 
+            // infoCopyright
+            // 
+            this.infoCopyright.AutoSize = true;
+            this.infoCopyright.BackColor = System.Drawing.Color.Transparent;
+            this.infoCopyright.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoCopyright.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoCopyright.Depth = 0;
+            this.infoCopyright.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoCopyright.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoCopyright.Location = new System.Drawing.Point(370, 179);
+            this.infoCopyright.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoCopyright.Name = "infoCopyright";
+            this.infoCopyright.Size = new System.Drawing.Size(37, 21);
+            this.infoCopyright.TabIndex = 8;
+            this.infoCopyright.Text = "Info";
+            this.infoCopyright.Click += new System.EventHandler(this.infoCopyright_Click);
+            // 
+            // infoGametitle
+            // 
+            this.infoGametitle.AutoSize = true;
+            this.infoGametitle.BackColor = System.Drawing.Color.Transparent;
+            this.infoGametitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoGametitle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoGametitle.Depth = 0;
+            this.infoGametitle.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoGametitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoGametitle.Location = new System.Drawing.Point(370, 212);
+            this.infoGametitle.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoGametitle.Name = "infoGametitle";
+            this.infoGametitle.Size = new System.Drawing.Size(37, 21);
+            this.infoGametitle.TabIndex = 9;
+            this.infoGametitle.Text = "Info";
+            this.infoGametitle.Click += new System.EventHandler(this.infoGametitle_Click);
+            // 
+            // infoOverscan
+            // 
+            this.infoOverscan.AutoSize = true;
+            this.infoOverscan.BackColor = System.Drawing.Color.Transparent;
+            this.infoOverscan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoOverscan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoOverscan.Depth = 0;
+            this.infoOverscan.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoOverscan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoOverscan.Location = new System.Drawing.Point(370, 245);
+            this.infoOverscan.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoOverscan.Name = "infoOverscan";
+            this.infoOverscan.Size = new System.Drawing.Size(37, 21);
+            this.infoOverscan.TabIndex = 10;
+            this.infoOverscan.Text = "Info";
+            this.infoOverscan.Click += new System.EventHandler(this.infoOverscan_Click);
+            // 
+            // infoSimultanus
+            // 
+            this.infoSimultanus.AutoSize = true;
+            this.infoSimultanus.BackColor = System.Drawing.Color.Transparent;
+            this.infoSimultanus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoSimultanus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoSimultanus.Depth = 0;
+            this.infoSimultanus.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoSimultanus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoSimultanus.Location = new System.Drawing.Point(370, 278);
+            this.infoSimultanus.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoSimultanus.Name = "infoSimultanus";
+            this.infoSimultanus.Size = new System.Drawing.Size(37, 21);
+            this.infoSimultanus.TabIndex = 11;
+            this.infoSimultanus.Text = "Info";
+            this.infoSimultanus.Click += new System.EventHandler(this.infoSimultanus_Click);
+            // 
+            // infoFadein
+            // 
+            this.infoFadein.AutoSize = true;
+            this.infoFadein.BackColor = System.Drawing.Color.Transparent;
+            this.infoFadein.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoFadein.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoFadein.Depth = 0;
+            this.infoFadein.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoFadein.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoFadein.Location = new System.Drawing.Point(370, 311);
+            this.infoFadein.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoFadein.Name = "infoFadein";
+            this.infoFadein.Size = new System.Drawing.Size(37, 21);
+            this.infoFadein.TabIndex = 12;
+            this.infoFadein.Text = "Info";
+            this.infoFadein.Click += new System.EventHandler(this.infoFadein_Click);
+            // 
+            // infoVolume
+            // 
+            this.infoVolume.AutoSize = true;
+            this.infoVolume.BackColor = System.Drawing.Color.Transparent;
+            this.infoVolume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoVolume.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoVolume.Depth = 0;
+            this.infoVolume.Font = new System.Drawing.Font("Roboto", 11F);
+            this.infoVolume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.infoVolume.Location = new System.Drawing.Point(370, 344);
+            this.infoVolume.MouseState = MaterialSkin.MouseState.HOVER;
+            this.infoVolume.Name = "infoVolume";
+            this.infoVolume.Size = new System.Drawing.Size(37, 21);
+            this.infoVolume.TabIndex = 13;
+            this.infoVolume.Text = "Info";
+            this.infoVolume.Click += new System.EventHandler(this.infoVolume_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 700);
+            this.Controls.Add(this.infoVolume);
+            this.Controls.Add(this.infoFadein);
+            this.Controls.Add(this.infoSimultanus);
+            this.Controls.Add(this.infoOverscan);
+            this.Controls.Add(this.infoGametitle);
+            this.Controls.Add(this.infoCopyright);
+            this.Controls.Add(this.infoGamecode);
+            this.Controls.Add(this.infoPublisher);
+            this.Controls.Add(this.infoSorttitle);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.InjectButton);
             this.Controls.Add(this.GameBrowse);
@@ -559,6 +745,24 @@
         private System.Windows.Forms.TextBox OverscanTextbox4;
         private System.Windows.Forms.TextBox FadeinTextbox2;
         private System.Windows.Forms.TextBox SimultanusTextbox;
+        private MaterialSkin.Controls.MaterialLabel infoSorttitle;
+        private System.Windows.Forms.ToolTip toolTipSorttitle;
+        private MaterialSkin.Controls.MaterialLabel infoPublisher;
+        private System.Windows.Forms.ToolTip toolTipPublisher;
+        private MaterialSkin.Controls.MaterialLabel infoGamecode;
+        private MaterialSkin.Controls.MaterialLabel infoCopyright;
+        private MaterialSkin.Controls.MaterialLabel infoGametitle;
+        private MaterialSkin.Controls.MaterialLabel infoOverscan;
+        private MaterialSkin.Controls.MaterialLabel infoSimultanus;
+        private MaterialSkin.Controls.MaterialLabel infoFadein;
+        private System.Windows.Forms.ToolTip toolTipCopyright;
+        private System.Windows.Forms.ToolTip toolTipGametitle;
+        private System.Windows.Forms.ToolTip toolTipOverscan;
+        private System.Windows.Forms.ToolTip toolTipSimultanus;
+        private System.Windows.Forms.ToolTip toolTipFadein;
+        private System.Windows.Forms.ToolTip toolTipGamecode;
+        private System.Windows.Forms.ToolTip toolTipVolume;
+        private MaterialSkin.Controls.MaterialLabel infoVolume;
     }
 }
 
