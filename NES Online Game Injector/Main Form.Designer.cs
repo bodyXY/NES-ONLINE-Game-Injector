@@ -84,6 +84,7 @@
             this.toolTipGamecode = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipVolume = new System.Windows.Forms.ToolTip(this.components);
             this.infoVolume = new MaterialSkin.Controls.MaterialLabel();
+            this.JPChackbox = new MaterialSkin.Controls.MaterialCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -425,7 +426,7 @@
             this.InjectButton.AutoSize = true;
             this.InjectButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.InjectButton.Depth = 0;
-            this.InjectButton.Location = new System.Drawing.Point(36, 601);
+            this.InjectButton.Location = new System.Drawing.Point(32, 634);
             this.InjectButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.InjectButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.InjectButton.Name = "InjectButton";
@@ -645,12 +646,29 @@
             this.infoVolume.Text = "Info";
             this.infoVolume.Click += new System.EventHandler(this.infoVolume_Click);
             // 
+            // JPChackbox
+            // 
+            this.JPChackbox.AutoSize = true;
+            this.JPChackbox.Depth = 0;
+            this.JPChackbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.JPChackbox.Location = new System.Drawing.Point(16, 573);
+            this.JPChackbox.Margin = new System.Windows.Forms.Padding(0);
+            this.JPChackbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.JPChackbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.JPChackbox.Name = "JPChackbox";
+            this.JPChackbox.Ripple = true;
+            this.JPChackbox.Size = new System.Drawing.Size(97, 30);
+            this.JPChackbox.TabIndex = 14;
+            this.JPChackbox.Text = "JP Version";
+            this.JPChackbox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 700);
+            this.ClientSize = new System.Drawing.Size(520, 700);
+            this.Controls.Add(this.JPChackbox);
             this.Controls.Add(this.infoVolume);
             this.Controls.Add(this.infoFadein);
             this.Controls.Add(this.infoSimultanus);
@@ -696,8 +714,9 @@
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.TitleLabel);
-            this.MaximumSize = new System.Drawing.Size(550, 700);
-            this.MinimumSize = new System.Drawing.Size(550, 700);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(520, 700);
+            this.MinimumSize = new System.Drawing.Size(520, 700);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NES Online Game Autoinjector";
@@ -763,6 +782,7 @@
         private System.Windows.Forms.ToolTip toolTipGamecode;
         private System.Windows.Forms.ToolTip toolTipVolume;
         private MaterialSkin.Controls.MaterialLabel infoVolume;
+        private MaterialSkin.Controls.MaterialCheckBox JPChackbox;
     }
 }
 
