@@ -45,3 +45,7 @@ Update 2.8.0
 - Input methods revised for error minimization
 - More background checks for error minimization
 - Bug fixes
+
+Update 2.8.1
+
+- Bug fixes
