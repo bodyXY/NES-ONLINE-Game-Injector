@@ -1,5 +1,5 @@
 # NES-ONLINE-Game-AutoInjector
-![noga_2 8 0](https://user-images.githubusercontent.com/43298952/46572279-60fea500-c983-11e8-9a33-c46aba761fc3.png)
+![noga_2_8_1](https://user-images.githubusercontent.com/43298952/46575611-c02adc80-c9b8-11e8-802d-0ad991087013.png)
 
 - You need the NvnTexpkg.package
 - Extract NvnTexpkg.package into the same folder like NES-Online-Game-Autoinjector
