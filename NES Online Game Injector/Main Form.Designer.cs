@@ -65,7 +65,6 @@
             this.OverscanTextbox3 = new System.Windows.Forms.TextBox();
             this.OverscanTextbox4 = new System.Windows.Forms.TextBox();
             this.FadeinTextbox2 = new System.Windows.Forms.TextBox();
-            this.SimultanusTextbox = new System.Windows.Forms.TextBox();
             this.infoSorttitle = new MaterialSkin.Controls.MaterialLabel();
             this.toolTipSorttitle = new System.Windows.Forms.ToolTip(this.components);
             this.infoPublisher = new MaterialSkin.Controls.MaterialLabel();
@@ -84,7 +83,9 @@
             this.toolTipGamecode = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipVolume = new System.Windows.Forms.ToolTip(this.components);
             this.infoVolume = new MaterialSkin.Controls.MaterialLabel();
-            this.JPChackbox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.JPCheckbox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.SimultanusFalseRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
+            this.SimultanusTrueRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -271,15 +272,18 @@
             this.PublisherTextbox.Location = new System.Drawing.Point(162, 110);
             this.PublisherTextbox.Name = "PublisherTextbox";
             this.PublisherTextbox.Size = new System.Drawing.Size(202, 27);
-            this.PublisherTextbox.TabIndex = 1;
+            this.PublisherTextbox.TabIndex = 2;
             // 
             // GamecodeTextbox
             // 
+            this.GamecodeTextbox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.GamecodeTextbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.GamecodeTextbox.Location = new System.Drawing.Point(162, 143);
+            this.GamecodeTextbox.MaxLength = 5;
             this.GamecodeTextbox.Name = "GamecodeTextbox";
             this.GamecodeTextbox.Size = new System.Drawing.Size(202, 27);
-            this.GamecodeTextbox.TabIndex = 1;
+            this.GamecodeTextbox.TabIndex = 3;
+            this.GamecodeTextbox.TextChanged += new System.EventHandler(this.GamecodeTextbox_TextChanged);
             // 
             // CopyrightTextbox
             // 
@@ -287,7 +291,7 @@
             this.CopyrightTextbox.Location = new System.Drawing.Point(162, 176);
             this.CopyrightTextbox.Name = "CopyrightTextbox";
             this.CopyrightTextbox.Size = new System.Drawing.Size(202, 27);
-            this.CopyrightTextbox.TabIndex = 1;
+            this.CopyrightTextbox.TabIndex = 4;
             // 
             // GametitleTextbox
             // 
@@ -295,68 +299,80 @@
             this.GametitleTextbox.Location = new System.Drawing.Point(162, 209);
             this.GametitleTextbox.Name = "GametitleTextbox";
             this.GametitleTextbox.Size = new System.Drawing.Size(202, 27);
-            this.GametitleTextbox.TabIndex = 1;
+            this.GametitleTextbox.TabIndex = 5;
             // 
             // OverscanTextbox
             // 
             this.OverscanTextbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.OverscanTextbox.Location = new System.Drawing.Point(162, 242);
+            this.OverscanTextbox.MaxLength = 1;
             this.OverscanTextbox.Name = "OverscanTextbox";
             this.OverscanTextbox.Size = new System.Drawing.Size(26, 27);
-            this.OverscanTextbox.TabIndex = 1;
+            this.OverscanTextbox.TabIndex = 6;
+            this.OverscanTextbox.TextChanged += new System.EventHandler(this.OverscanTextbox_TextChanged);
             // 
             // FadeinTextbox
             // 
             this.FadeinTextbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.FadeinTextbox.Location = new System.Drawing.Point(162, 308);
+            this.FadeinTextbox.MaxLength = 1;
             this.FadeinTextbox.Name = "FadeinTextbox";
             this.FadeinTextbox.Size = new System.Drawing.Size(26, 27);
-            this.FadeinTextbox.TabIndex = 1;
+            this.FadeinTextbox.TabIndex = 10;
+            this.FadeinTextbox.TextChanged += new System.EventHandler(this.FadeinTextbox_TextChanged);
             // 
             // VolumeTextbox
             // 
             this.VolumeTextbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.VolumeTextbox.Location = new System.Drawing.Point(162, 341);
+            this.VolumeTextbox.MaxLength = 2;
             this.VolumeTextbox.Name = "VolumeTextbox";
             this.VolumeTextbox.Size = new System.Drawing.Size(202, 27);
-            this.VolumeTextbox.TabIndex = 1;
+            this.VolumeTextbox.TabIndex = 12;
+            this.VolumeTextbox.TextChanged += new System.EventHandler(this.VolumeTextbox_TextChanged);
             // 
             // GamepathTextbox
             // 
+            this.GamepathTextbox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.GamepathTextbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.GamepathTextbox.Location = new System.Drawing.Point(162, 384);
             this.GamepathTextbox.Name = "GamepathTextbox";
+            this.GamepathTextbox.ReadOnly = true;
             this.GamepathTextbox.Size = new System.Drawing.Size(202, 27);
-            this.GamepathTextbox.TabIndex = 1;
+            this.GamepathTextbox.TabIndex = 0;
             // 
             // Coverpath1Textbox
             // 
             this.Coverpath1Textbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.Coverpath1Textbox.Location = new System.Drawing.Point(162, 432);
             this.Coverpath1Textbox.Name = "Coverpath1Textbox";
+            this.Coverpath1Textbox.ReadOnly = true;
             this.Coverpath1Textbox.Size = new System.Drawing.Size(202, 27);
-            this.Coverpath1Textbox.TabIndex = 1;
+            this.Coverpath1Textbox.TabIndex = 0;
             // 
             // Coverpath2Textbox
             // 
             this.Coverpath2Textbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.Coverpath2Textbox.Location = new System.Drawing.Point(162, 480);
             this.Coverpath2Textbox.Name = "Coverpath2Textbox";
+            this.Coverpath2Textbox.ReadOnly = true;
             this.Coverpath2Textbox.Size = new System.Drawing.Size(202, 27);
-            this.Coverpath2Textbox.TabIndex = 1;
+            this.Coverpath2Textbox.TabIndex = 0;
             // 
             // TitledbTextbox
             // 
             this.TitledbTextbox.Font = new System.Drawing.Font("Roboto", 11F);
             this.TitledbTextbox.Location = new System.Drawing.Point(162, 528);
             this.TitledbTextbox.Name = "TitledbTextbox";
+            this.TitledbTextbox.ReadOnly = true;
             this.TitledbTextbox.Size = new System.Drawing.Size(202, 27);
-            this.TitledbTextbox.TabIndex = 1;
+            this.TitledbTextbox.TabIndex = 0;
             // 
             // Coverpath2BrowseButton
             // 
             this.Coverpath2BrowseButton.AutoSize = true;
             this.Coverpath2BrowseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Coverpath2BrowseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Coverpath2BrowseButton.Depth = 0;
             this.Coverpath2BrowseButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.Coverpath2BrowseButton.Location = new System.Drawing.Point(410, 475);
@@ -365,7 +381,7 @@
             this.Coverpath2BrowseButton.Name = "Coverpath2BrowseButton";
             this.Coverpath2BrowseButton.Primary = false;
             this.Coverpath2BrowseButton.Size = new System.Drawing.Size(67, 36);
-            this.Coverpath2BrowseButton.TabIndex = 2;
+            this.Coverpath2BrowseButton.TabIndex = 0;
             this.Coverpath2BrowseButton.Text = "Browse";
             this.Coverpath2BrowseButton.UseVisualStyleBackColor = true;
             this.Coverpath2BrowseButton.Click += new System.EventHandler(this.Coverpath2BrowseButton_Click_1);
@@ -374,6 +390,7 @@
             // 
             this.Coverpath1BrowseButton.AutoSize = true;
             this.Coverpath1BrowseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Coverpath1BrowseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Coverpath1BrowseButton.Depth = 0;
             this.Coverpath1BrowseButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.Coverpath1BrowseButton.Location = new System.Drawing.Point(410, 427);
@@ -382,7 +399,7 @@
             this.Coverpath1BrowseButton.Name = "Coverpath1BrowseButton";
             this.Coverpath1BrowseButton.Primary = false;
             this.Coverpath1BrowseButton.Size = new System.Drawing.Size(67, 36);
-            this.Coverpath1BrowseButton.TabIndex = 2;
+            this.Coverpath1BrowseButton.TabIndex = 0;
             this.Coverpath1BrowseButton.Text = "Browse";
             this.Coverpath1BrowseButton.UseVisualStyleBackColor = true;
             this.Coverpath1BrowseButton.Click += new System.EventHandler(this.Coverpath1BrowseButton_Click);
@@ -391,6 +408,7 @@
             // 
             this.TitledbBrowseButton.AutoSize = true;
             this.TitledbBrowseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TitledbBrowseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TitledbBrowseButton.Depth = 0;
             this.TitledbBrowseButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.TitledbBrowseButton.Location = new System.Drawing.Point(410, 523);
@@ -399,7 +417,7 @@
             this.TitledbBrowseButton.Name = "TitledbBrowseButton";
             this.TitledbBrowseButton.Primary = false;
             this.TitledbBrowseButton.Size = new System.Drawing.Size(67, 36);
-            this.TitledbBrowseButton.TabIndex = 2;
+            this.TitledbBrowseButton.TabIndex = 0;
             this.TitledbBrowseButton.Text = "Browse";
             this.TitledbBrowseButton.UseVisualStyleBackColor = true;
             this.TitledbBrowseButton.Click += new System.EventHandler(this.TitledbBrowseButton_Click);
@@ -408,6 +426,7 @@
             // 
             this.GameBrowse.AutoSize = true;
             this.GameBrowse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GameBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GameBrowse.Depth = 0;
             this.GameBrowse.Font = new System.Drawing.Font("Roboto", 9F);
             this.GameBrowse.Location = new System.Drawing.Point(410, 379);
@@ -416,7 +435,7 @@
             this.GameBrowse.Name = "GameBrowse";
             this.GameBrowse.Primary = false;
             this.GameBrowse.Size = new System.Drawing.Size(67, 36);
-            this.GameBrowse.TabIndex = 2;
+            this.GameBrowse.TabIndex = 0;
             this.GameBrowse.Text = "Browse";
             this.GameBrowse.UseVisualStyleBackColor = true;
             this.GameBrowse.Click += new System.EventHandler(this.GameBrowse_Click);
@@ -432,7 +451,7 @@
             this.InjectButton.Name = "InjectButton";
             this.InjectButton.Primary = false;
             this.InjectButton.Size = new System.Drawing.Size(58, 36);
-            this.InjectButton.TabIndex = 3;
+            this.InjectButton.TabIndex = 0;
             this.InjectButton.Text = "Inject";
             this.InjectButton.UseVisualStyleBackColor = true;
             this.InjectButton.Click += new System.EventHandler(this.InjectButton_Click);
@@ -452,41 +471,41 @@
             // 
             this.OverscanTextbox2.Font = new System.Drawing.Font("Roboto", 11F);
             this.OverscanTextbox2.Location = new System.Drawing.Point(194, 242);
+            this.OverscanTextbox2.MaxLength = 1;
             this.OverscanTextbox2.Name = "OverscanTextbox2";
             this.OverscanTextbox2.Size = new System.Drawing.Size(26, 27);
-            this.OverscanTextbox2.TabIndex = 1;
+            this.OverscanTextbox2.TabIndex = 7;
+            this.OverscanTextbox2.TextChanged += new System.EventHandler(this.OverscanTextbox2_TextChanged);
             // 
             // OverscanTextbox3
             // 
             this.OverscanTextbox3.Font = new System.Drawing.Font("Roboto", 11F);
             this.OverscanTextbox3.Location = new System.Drawing.Point(226, 242);
+            this.OverscanTextbox3.MaxLength = 1;
             this.OverscanTextbox3.Name = "OverscanTextbox3";
             this.OverscanTextbox3.Size = new System.Drawing.Size(26, 27);
-            this.OverscanTextbox3.TabIndex = 1;
+            this.OverscanTextbox3.TabIndex = 8;
+            this.OverscanTextbox3.TextChanged += new System.EventHandler(this.OverscanTextbox3_TextChanged);
             // 
             // OverscanTextbox4
             // 
             this.OverscanTextbox4.Font = new System.Drawing.Font("Roboto", 11F);
             this.OverscanTextbox4.Location = new System.Drawing.Point(258, 242);
+            this.OverscanTextbox4.MaxLength = 1;
             this.OverscanTextbox4.Name = "OverscanTextbox4";
             this.OverscanTextbox4.Size = new System.Drawing.Size(26, 27);
-            this.OverscanTextbox4.TabIndex = 1;
+            this.OverscanTextbox4.TabIndex = 9;
+            this.OverscanTextbox4.TextChanged += new System.EventHandler(this.OverscanTextbox4_TextChanged);
             // 
             // FadeinTextbox2
             // 
             this.FadeinTextbox2.Font = new System.Drawing.Font("Roboto", 11F);
             this.FadeinTextbox2.Location = new System.Drawing.Point(194, 308);
+            this.FadeinTextbox2.MaxLength = 1;
             this.FadeinTextbox2.Name = "FadeinTextbox2";
             this.FadeinTextbox2.Size = new System.Drawing.Size(26, 27);
-            this.FadeinTextbox2.TabIndex = 1;
-            // 
-            // SimultanusTextbox
-            // 
-            this.SimultanusTextbox.Font = new System.Drawing.Font("Roboto", 11F);
-            this.SimultanusTextbox.Location = new System.Drawing.Point(162, 275);
-            this.SimultanusTextbox.Name = "SimultanusTextbox";
-            this.SimultanusTextbox.Size = new System.Drawing.Size(202, 27);
-            this.SimultanusTextbox.TabIndex = 1;
+            this.FadeinTextbox2.TabIndex = 11;
+            this.FadeinTextbox2.TextChanged += new System.EventHandler(this.FadeinTextbox2_TextChanged);
             // 
             // infoSorttitle
             // 
@@ -501,7 +520,7 @@
             this.infoSorttitle.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoSorttitle.Name = "infoSorttitle";
             this.infoSorttitle.Size = new System.Drawing.Size(37, 21);
-            this.infoSorttitle.TabIndex = 5;
+            this.infoSorttitle.TabIndex = 0;
             this.infoSorttitle.Text = "Info";
             this.infoSorttitle.Click += new System.EventHandler(this.infoSorttitle_Click);
             // 
@@ -523,7 +542,7 @@
             this.infoPublisher.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoPublisher.Name = "infoPublisher";
             this.infoPublisher.Size = new System.Drawing.Size(37, 21);
-            this.infoPublisher.TabIndex = 6;
+            this.infoPublisher.TabIndex = 0;
             this.infoPublisher.Text = "Info";
             this.infoPublisher.Click += new System.EventHandler(this.infoPublisher_Click);
             // 
@@ -540,7 +559,7 @@
             this.infoGamecode.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoGamecode.Name = "infoGamecode";
             this.infoGamecode.Size = new System.Drawing.Size(37, 21);
-            this.infoGamecode.TabIndex = 7;
+            this.infoGamecode.TabIndex = 0;
             this.infoGamecode.Text = "Info";
             this.infoGamecode.Click += new System.EventHandler(this.infoGamecode_Click);
             // 
@@ -557,7 +576,7 @@
             this.infoCopyright.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoCopyright.Name = "infoCopyright";
             this.infoCopyright.Size = new System.Drawing.Size(37, 21);
-            this.infoCopyright.TabIndex = 8;
+            this.infoCopyright.TabIndex = 0;
             this.infoCopyright.Text = "Info";
             this.infoCopyright.Click += new System.EventHandler(this.infoCopyright_Click);
             // 
@@ -574,7 +593,7 @@
             this.infoGametitle.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoGametitle.Name = "infoGametitle";
             this.infoGametitle.Size = new System.Drawing.Size(37, 21);
-            this.infoGametitle.TabIndex = 9;
+            this.infoGametitle.TabIndex = 0;
             this.infoGametitle.Text = "Info";
             this.infoGametitle.Click += new System.EventHandler(this.infoGametitle_Click);
             // 
@@ -591,7 +610,7 @@
             this.infoOverscan.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoOverscan.Name = "infoOverscan";
             this.infoOverscan.Size = new System.Drawing.Size(37, 21);
-            this.infoOverscan.TabIndex = 10;
+            this.infoOverscan.TabIndex = 0;
             this.infoOverscan.Text = "Info";
             this.infoOverscan.Click += new System.EventHandler(this.infoOverscan_Click);
             // 
@@ -608,7 +627,7 @@
             this.infoSimultanus.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoSimultanus.Name = "infoSimultanus";
             this.infoSimultanus.Size = new System.Drawing.Size(37, 21);
-            this.infoSimultanus.TabIndex = 11;
+            this.infoSimultanus.TabIndex = 0;
             this.infoSimultanus.Text = "Info";
             this.infoSimultanus.Click += new System.EventHandler(this.infoSimultanus_Click);
             // 
@@ -625,7 +644,7 @@
             this.infoFadein.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoFadein.Name = "infoFadein";
             this.infoFadein.Size = new System.Drawing.Size(37, 21);
-            this.infoFadein.TabIndex = 12;
+            this.infoFadein.TabIndex = 0;
             this.infoFadein.Text = "Info";
             this.infoFadein.Click += new System.EventHandler(this.infoFadein_Click);
             // 
@@ -642,33 +661,70 @@
             this.infoVolume.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoVolume.Name = "infoVolume";
             this.infoVolume.Size = new System.Drawing.Size(37, 21);
-            this.infoVolume.TabIndex = 13;
+            this.infoVolume.TabIndex = 0;
             this.infoVolume.Text = "Info";
             this.infoVolume.Click += new System.EventHandler(this.infoVolume_Click);
             // 
-            // JPChackbox
+            // JPCheckbox
             // 
-            this.JPChackbox.AutoSize = true;
-            this.JPChackbox.Depth = 0;
-            this.JPChackbox.Font = new System.Drawing.Font("Roboto", 10F);
-            this.JPChackbox.Location = new System.Drawing.Point(16, 573);
-            this.JPChackbox.Margin = new System.Windows.Forms.Padding(0);
-            this.JPChackbox.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.JPChackbox.MouseState = MaterialSkin.MouseState.HOVER;
-            this.JPChackbox.Name = "JPChackbox";
-            this.JPChackbox.Ripple = true;
-            this.JPChackbox.Size = new System.Drawing.Size(97, 30);
-            this.JPChackbox.TabIndex = 14;
-            this.JPChackbox.Text = "JP Version";
-            this.JPChackbox.UseVisualStyleBackColor = true;
+            this.JPCheckbox.AutoSize = true;
+            this.JPCheckbox.Depth = 0;
+            this.JPCheckbox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.JPCheckbox.Location = new System.Drawing.Point(16, 573);
+            this.JPCheckbox.Margin = new System.Windows.Forms.Padding(0);
+            this.JPCheckbox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.JPCheckbox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.JPCheckbox.Name = "JPCheckbox";
+            this.JPCheckbox.Ripple = true;
+            this.JPCheckbox.Size = new System.Drawing.Size(97, 30);
+            this.JPCheckbox.TabIndex = 0;
+            this.JPCheckbox.Text = "JP Version";
+            this.JPCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // SimultanusFalseRadioButton
+            // 
+            this.SimultanusFalseRadioButton.AutoSize = true;
+            this.SimultanusFalseRadioButton.Checked = true;
+            this.SimultanusFalseRadioButton.Depth = 0;
+            this.SimultanusFalseRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
+            this.SimultanusFalseRadioButton.Location = new System.Drawing.Point(162, 273);
+            this.SimultanusFalseRadioButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SimultanusFalseRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SimultanusFalseRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SimultanusFalseRadioButton.Name = "SimultanusFalseRadioButton";
+            this.SimultanusFalseRadioButton.Ripple = true;
+            this.SimultanusFalseRadioButton.Size = new System.Drawing.Size(59, 30);
+            this.SimultanusFalseRadioButton.TabIndex = 0;
+            this.SimultanusFalseRadioButton.TabStop = true;
+            this.SimultanusFalseRadioButton.Text = "false";
+            this.SimultanusFalseRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // SimultanusTrueRadioButton
+            // 
+            this.SimultanusTrueRadioButton.AutoSize = true;
+            this.SimultanusTrueRadioButton.Depth = 0;
+            this.SimultanusTrueRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
+            this.SimultanusTrueRadioButton.Location = new System.Drawing.Point(231, 273);
+            this.SimultanusTrueRadioButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SimultanusTrueRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SimultanusTrueRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SimultanusTrueRadioButton.Name = "SimultanusTrueRadioButton";
+            this.SimultanusTrueRadioButton.Ripple = true;
+            this.SimultanusTrueRadioButton.Size = new System.Drawing.Size(53, 30);
+            this.SimultanusTrueRadioButton.TabIndex = 0;
+            this.SimultanusTrueRadioButton.Text = "true";
+            this.SimultanusTrueRadioButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 700);
-            this.Controls.Add(this.JPChackbox);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(510, 700);
+            this.Controls.Add(this.SimultanusTrueRadioButton);
+            this.Controls.Add(this.SimultanusFalseRadioButton);
+            this.Controls.Add(this.JPCheckbox);
             this.Controls.Add(this.infoVolume);
             this.Controls.Add(this.infoFadein);
             this.Controls.Add(this.infoSimultanus);
@@ -695,7 +751,6 @@
             this.Controls.Add(this.OverscanTextbox3);
             this.Controls.Add(this.OverscanTextbox2);
             this.Controls.Add(this.OverscanTextbox);
-            this.Controls.Add(this.SimultanusTextbox);
             this.Controls.Add(this.GametitleTextbox);
             this.Controls.Add(this.CopyrightTextbox);
             this.Controls.Add(this.GamecodeTextbox);
@@ -715,9 +770,11 @@
             this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.TitleLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(520, 700);
-            this.MinimumSize = new System.Drawing.Size(520, 700);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(510, 700);
+            this.MinimumSize = new System.Drawing.Size(510, 700);
             this.Name = "Form1";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NES Online Game Autoinjector";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -763,7 +820,6 @@
         private System.Windows.Forms.TextBox OverscanTextbox3;
         private System.Windows.Forms.TextBox OverscanTextbox4;
         private System.Windows.Forms.TextBox FadeinTextbox2;
-        private System.Windows.Forms.TextBox SimultanusTextbox;
         private MaterialSkin.Controls.MaterialLabel infoSorttitle;
         private System.Windows.Forms.ToolTip toolTipSorttitle;
         private MaterialSkin.Controls.MaterialLabel infoPublisher;
@@ -782,7 +838,9 @@
         private System.Windows.Forms.ToolTip toolTipGamecode;
         private System.Windows.Forms.ToolTip toolTipVolume;
         private MaterialSkin.Controls.MaterialLabel infoVolume;
-        private MaterialSkin.Controls.MaterialCheckBox JPChackbox;
+        private MaterialSkin.Controls.MaterialCheckBox JPCheckbox;
+        private MaterialSkin.Controls.MaterialRadioButton SimultanusFalseRadioButton;
+        private MaterialSkin.Controls.MaterialRadioButton SimultanusTrueRadioButton;
     }
 }
 

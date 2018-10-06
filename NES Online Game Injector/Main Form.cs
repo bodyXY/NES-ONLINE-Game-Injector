@@ -23,7 +23,7 @@ namespace NES_Online_Game_Injector
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red900, Primary.Red500, Accent.Red100, TextShade.WHITE);
         }
-
+        
         private void InjectCompleted()
         {
             MessageBox.Show("Game injected!", "Have fun ;)", MessageBoxButtons.OK);
@@ -73,7 +73,7 @@ namespace NES_Online_Game_Injector
         {
             toolTipVolume.SetToolTip(infoVolume, "Enter the volume for the game (between 0 and 99)\r\nExample of Mario Bros volume: [74]\r\nExample of The Legend of Zelda volume: [78]");
         }
-
+        
         private void GameBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog GameBrowse = new OpenFileDialog();
@@ -116,6 +116,80 @@ namespace NES_Online_Game_Injector
 
             if (TitledbBrowse.ShowDialog() == DialogResult.OK)
                 TitledbTextbox.Text = TitledbBrowse.FileName;
+        }
+
+
+
+        private void GamecodeTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(GamecodeTextbox.Text, "[^A-Z]"))
+            {
+                MessageBox.Show("Please enter only characters");
+                GamecodeTextbox.Text = GamecodeTextbox.Text.Remove(GamecodeTextbox.Text.Length - 1);
+            }
+        }
+
+        private void OverscanTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(OverscanTextbox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers [0-9].");
+                OverscanTextbox.Text = OverscanTextbox.Text.Remove(OverscanTextbox.Text.Length - 1);
+            }
+        }
+
+        private void OverscanTextbox2_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(OverscanTextbox2.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers [0-9].");
+                OverscanTextbox2.Text = OverscanTextbox2.Text.Remove(OverscanTextbox2.Text.Length - 1);
+            }
+        }
+
+        private void OverscanTextbox3_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(OverscanTextbox3.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers [0-9].");
+                OverscanTextbox3.Text = OverscanTextbox3.Text.Remove(OverscanTextbox3.Text.Length - 1);
+            }
+        }
+
+        private void OverscanTextbox4_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(OverscanTextbox4.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers [0-9].");
+                OverscanTextbox4.Text = OverscanTextbox4.Text.Remove(OverscanTextbox4.Text.Length - 1);
+            }
+        }
+
+        private void FadeinTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(FadeinTextbox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers [0-9].");
+                FadeinTextbox.Text = FadeinTextbox.Text.Remove(FadeinTextbox.Text.Length - 1);
+            }
+        }
+
+        private void FadeinTextbox2_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(FadeinTextbox2.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers [0-9].");
+                FadeinTextbox2.Text = FadeinTextbox2.Text.Remove(FadeinTextbox2.Text.Length - 1);
+            }
+        }
+
+        private void VolumeTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(VolumeTextbox.Text, "[^0-99]"))
+            {
+                MessageBox.Show("Please enter only numbers [0-99].");
+                VolumeTextbox.Text = VolumeTextbox.Text.Remove(VolumeTextbox.Text.Length - 1);
+            }
         }
 
         private void InjectButton_Click(object sender, EventArgs e)
@@ -185,11 +259,6 @@ namespace NES_Online_Game_Injector
                 MessageBox.Show("Enter the Overscan box 4", "Error.", MessageBoxButtons.OK);
                 return;
             }
-            else if (SimultanusTextbox.Text == string.Empty)
-            {
-                MessageBox.Show("Enter the Simultanus (true or false)", "Error.", MessageBoxButtons.OK);
-                return;
-            }
             else if (OverscanTextbox4.Text.Length < 1 || OverscanTextbox4.Text.Length > 1)
             {
                 MessageBox.Show("Enter the Overscan box 4 between (0 and 9)", "Error.", MessageBoxButtons.OK);
@@ -235,11 +304,16 @@ namespace NES_Online_Game_Injector
                 MessageBox.Show("Invalid Cover path 400x300", "Error.", MessageBoxButtons.OK);
                 return;
             }
-            else if (Coverpath2Textbox.Text == string.Empty)
+
+            else if (JPCheckbox.Checked)
             {
-                MessageBox.Show("Invalid Cover path 355x512", "Error.", MessageBoxButtons.OK);
-                return;
+                if (Coverpath2Textbox.Text == string.Empty)
+                {
+                    MessageBox.Show("Invalid Cover path 355x512", "Error.", MessageBoxButtons.OK);
+                    return;
+                }
             }
+
             else if (TitledbTextbox.Text == string.Empty)
             {
                 MessageBox.Show("Invalid Title DB path", "Error.", MessageBoxButtons.OK);
@@ -256,7 +330,49 @@ namespace NES_Online_Game_Injector
                         return;
                     }
                 }
-            
+
+            if (JPCheckbox.Checked == false)
+            {
+                string filecheck20 = "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + ".xtx.z";
+                if (File.Exists(filecheck20))
+                {
+                    MessageBox.Show("Cover file " + GamecodeTextbox.Text + " already exist", "Error");
+                    return;
+                }
+                string filecheck24 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + "00.xtx.z";
+                if (File.Exists(filecheck24))
+                {
+                    MessageBox.Show("Cover file 355x512 " + GamecodeTextbox.Text + " already exist", "Error");
+                    return;
+                }
+                string filecheck21 = "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + ".nes";
+                if (File.Exists(filecheck21))
+                {
+                    MessageBox.Show("Game file " + GamecodeTextbox.Text + " already exist in the TitleDB", "Error");
+                    return;
+                }
+            }
+            if (JPCheckbox.Checked)
+            {
+                string filecheck22 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".xtx.z";
+                if (File.Exists(filecheck22))
+                {
+                    MessageBox.Show("Cover file 400x300 " + GamecodeTextbox.Text + " already exist", "Error");
+                    return;
+                }
+                string filecheck23 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + "00.xtx.z";
+                if (File.Exists(filecheck23))
+                {
+                    MessageBox.Show("Cover file 355x512 " + GamecodeTextbox.Text + " already exist", "Error");
+                    return;
+                }
+                string filecheck24 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".nes";
+                if (File.Exists(filecheck24))
+                {
+                MessageBox.Show("Game file " + GamecodeTextbox.Text + " already exist in the TitleDB", "Error");
+                return;
+                }
+            }
             string filecheck1 = "cover.xtx";
             if (File.Exists(filecheck1))
             {
@@ -278,98 +394,109 @@ namespace NES_Online_Game_Injector
                 File.Delete(@"screenshot.xtx.zlib");
             }
             string filecheck5 = "temp/cover.tga";
-            if (Directory.Exists(filecheck5))
+            if (File.Exists(filecheck5))
             {
-                Directory.Delete("temp/cover.tga");
+                File.Delete(@"temp/cover.tga");
             }
             string filecheck6 = "temp/screenshot.tga";
-            if (Directory.Exists(filecheck6))
+            if (File.Exists(filecheck6))
             {
-                Directory.Delete("temp/screenshot.tga");
+                File.Delete(@"temp/screenshot.tga");
             }
             string filecheck7 = "temp/lclassics.titlesdb";
-            if (Directory.Exists(filecheck7))
+            if (File.Exists(filecheck7))
             {
-                Directory.Delete("temp/lclassics.titlesdb");
+                File.Delete(@"temp/lclassics.titlesdb");
             }
             string filecheck8 = "temp";
             if (Directory.Exists(filecheck8))
             {
-                Directory.Delete("temp");
+                Directory.Delete(@"temp");
             }
 
-            if (JPChackbox.Checked == false)
+            if (JPCheckbox.Checked == false)
             {
-
                 Directory.CreateDirectory("NES_ONLINE_Mod");
                 Directory.CreateDirectory("NES_ONLINE_Mod/titles");
                 Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100D870045B6000");
                 Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100D870045B6000/romfs");
-                Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/CLV-H-" + GamecodeTextbox.Text);
+                Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles");
+                Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text);
 
                 Directory.CreateDirectory("temp");
+
                 File.Copy(@Coverpath1Textbox.Text, "temp/cover.tga");
-                File.Copy(@Coverpath2Textbox.Text, "temp/screenshot.tga");
+                File.Copy(@Coverpath1Textbox.Text, "temp/screenshot.tga");
+
                 string filecheck9 = "cover.tga";
                 if (File.Exists(filecheck9))
                 {
                     File.Delete(@"cover.tga");
                 }
+
                 string filecheck10 = "screenshot.tga";
                 if (File.Exists(filecheck10))
                 {
                     File.Delete(@"screenshot.tga");
                 }
-                File.Move(@"temp/cover.tga", "cover.tga");
+
                 File.Move(@"temp/screenshot.tga", "screenshot.tga");
+                File.Move(@"temp/cover.tga", "cover.tga");
 
                 Nconvert.RunCommand($"-i cover.tga -o cover.xtx --mip-filter box --minmip 5 -f rgba8");
                 Nconvert.RunCommand($"-i screenshot.tga -o screenshot.xtx --mip-filter box --minmip 5 -f rgba8");
-                Zconvert.RunCommand($"cover.xtx");
 
-                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/CLV-H-" + GamecodeTextbox.Text + "\\" + "CLV-H-" + GamecodeTextbox.Text + ".xtx.z");
+                Zconvert.RunCommand($"cover.xtx");
+                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + ".xtx.z");
                 File.Delete(@"cover.xtx");
                 File.Delete(@"cover.xtx.zlib");
 
                 Zconvert.RunCommand($"screenshot.xtx");
-                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/CLV-H-" + GamecodeTextbox.Text + "\\" + "CLV-H-" + GamecodeTextbox.Text + "00.xtx.z");
+                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + "00.xtx.z");
                 File.Delete(@"screenshot.xtx");
                 File.Delete(@"screenshot.xtx.zlib");
 
-                File.Copy(@GamepathTextbox.Text, "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/CLV-H-" + GamecodeTextbox.Text + "\\" + "CLV-H-" + GamecodeTextbox.Text + ".nes");
+                File.Copy(@GamepathTextbox.Text, "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + ".nes");
 
                 File.Copy(@TitledbTextbox.Text, "temp/lclassics.titlesdb");
-                string filecheck11 = "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/lclassics.titlesdb";
+                string filecheck11 = "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/lclassics.titlesdb";
                 if (File.Exists(filecheck11))
                 {
-                    File.Delete(@"NES_ONLINE_Mod/titles/0100D870045B6000/romfs/lclassics.titlesdb");
+                    File.Delete(@"NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/lclassics.titlesdb");
                 }
-                File.Move(@"temp/lclassics.titlesdb", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/lclassics.titlesdb");
-                Directory.Delete("temp");
+                File.Move(@"temp/lclassics.titlesdb", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/lclassics.titlesdb");
+                Directory.Delete(@"temp");
                 
-                var lines2 = File.ReadAllLines("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/lclassics.titlesdb");
-                File.WriteAllLines("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/lclassics.titlesdb", lines2.Take(lines2.Length - 2).ToArray());
-                using (StreamWriter db = new FileInfo("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/lclassics.titlesdb").AppendText())
+                var lines2 = File.ReadAllLines("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/lclassics.titlesdb");
+                File.WriteAllLines("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/lclassics.titlesdb", lines2.Take(lines2.Length - 2).ToArray());
+                using (StreamWriter db = new FileInfo("NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/lclassics.titlesdb").AppendText())
                 {
                     db.WriteLine("        ,");
                     db.WriteLine("        {");
                     db.WriteLine("            \"sort_title\": \"" + SortTitleTextbox.Text + "\",");
                     db.WriteLine("            \"publisher\": \"" + PublisherTextbox.Text + "\",");
-                    db.WriteLine("            \"code\": \"CLV-H-" + GamecodeTextbox.Text + "\",");
-                    db.WriteLine("            \"rom\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + ".nes\",");
+                    db.WriteLine("            \"code\": \"HLV-C-" + GamecodeTextbox.Text + "\",");
+                    db.WriteLine("            \"rom\": \"/titles/HLV-C-" + GamecodeTextbox.Text + "/HLV-C-" + GamecodeTextbox.Text + ".nes\",");
                     db.WriteLine("            \"copyright\": \"" + CopyrightTextbox.Text + "\",");
                     db.WriteLine("            \"title\": \"" + GametitleTextbox.Text + "\",");
                     db.WriteLine("            \"volume\": " + VolumeTextbox.Text + ",");
                     db.WriteLine("            \"release_date\": \"1987-12-01\",");
                     db.WriteLine("            \"players_count\": 1,");
-                    db.WriteLine("            \"cover\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + ".xtx.z\",");
+                    db.WriteLine("            \"cover\": \"/titles/HLV-C-" + GamecodeTextbox.Text + "/HLV-C-" + GamecodeTextbox.Text + ".xtx.z\",");
                     db.WriteLine("            \"overscan\": [" + OverscanTextbox.Text + ", " + OverscanTextbox2.Text + ", " + OverscanTextbox3.Text + ", " + OverscanTextbox4.Text + "],");
                     db.WriteLine("            \"armet_version\": \"v1\",");
                     db.WriteLine("            \"lcla6_release_date\": \"2018-09-01\",");
                     db.WriteLine("            \"save_count\": 0,");
-                    db.WriteLine("            \"simultaneous\": " + SimultanusTextbox.Text + ",");
+                    if (SimultanusFalseRadioButton.Checked)
+                    {
+                        db.WriteLine("            \"simultaneous\": false,");
+                    };
+                    if (SimultanusTrueRadioButton.Checked)
+                    {
+                        db.WriteLine("            \"simultaneous\": true,");
+                    };
                     db.WriteLine("            \"fadein\": [" + FadeinTextbox.Text + ", " + FadeinTextbox2.Text + "],");
-                    db.WriteLine("            \"details_screen\": \"\",");
+                    db.WriteLine("            \"details_screen\": \"/titles/HLV-C-" + GamecodeTextbox.Text + "/HLV-C-" + GamecodeTextbox.Text + "00.xtx.z\",");
                     db.WriteLine("            \"armet_threshold\": 80,");
                     db.WriteLine("            \"sort_publisher\": \"" + PublisherTextbox.Text + "\"");
                     db.WriteLine("        }");
@@ -378,76 +505,109 @@ namespace NES_Online_Game_Injector
                     db.Close();
                 }
             }
-            else if (JPChackbox.Checked)
+            else if (JPCheckbox.Checked)
             {
                 Directory.CreateDirectory("NES_ONLINE_Mod");
                 Directory.CreateDirectory("NES_ONLINE_Mod/titles");
                 Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100B4E00444C000");
                 Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs");
-                Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-H-" + GamecodeTextbox.Text);
+                Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles");
+                Directory.CreateDirectory("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text);
 
                 Directory.CreateDirectory("temp");
+
                 File.Copy(@Coverpath1Textbox.Text, "temp/cover.tga");
                 File.Copy(@Coverpath2Textbox.Text, "temp/screenshot.tga");
+
                 string filecheck9 = "cover.tga";
                 if (File.Exists(filecheck9))
                 {
                     File.Delete(@"cover.tga");
                 }
+
                 string filecheck10 = "screenshot.tga";
                 if (File.Exists(filecheck10))
                 {
                     File.Delete(@"screenshot.tga");
                 }
+
                 File.Move(@"temp/cover.tga", "cover.tga");
                 File.Move(@"temp/screenshot.tga", "screenshot.tga");
 
                 Nconvert.RunCommand($"-i cover.tga -o cover.xtx --mip-filter box --minmip 5 -f rgba8");
                 Nconvert.RunCommand($"-i screenshot.tga -o screenshot.xtx --mip-filter box --minmip 5 -f rgba8");
-                Zconvert.RunCommand($"cover.xtx");
 
-                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-H-" + GamecodeTextbox.Text + "\\" + "CLV-H-" + GamecodeTextbox.Text + ".xtx.z");
+                Zconvert.RunCommand($"cover.xtx");
+                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".xtx.z");
                 File.Delete(@"cover.xtx");
                 File.Delete(@"cover.xtx.zlib");
 
                 Zconvert.RunCommand($"screenshot.xtx");
-                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-H-" + GamecodeTextbox.Text + "\\" + "CLV-H-" + GamecodeTextbox.Text + "00.xtx.z");
+                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + "00.xtx.z");
                 File.Delete(@"screenshot.xtx");
                 File.Delete(@"screenshot.xtx.zlib");
 
-                File.Copy(@GamepathTextbox.Text, "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-H-" + GamecodeTextbox.Text + "\\" + "CLV-H-" + GamecodeTextbox.Text + ".nes");
+                File.Copy(@GamepathTextbox.Text, "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".nes");
 
                 File.Copy(@TitledbTextbox.Text, "temp/lclassics.titlesdb");
-                string filecheck11 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/lclassics.titlesdb";
+                string filecheck11 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/lclassics.titlesdb";
                 if (File.Exists(filecheck11))
                 {
-                    File.Delete(@"NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/lclassics.titlesdb");
+                    File.Delete(@"NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/lclassics.titlesdb");
                 }
-                File.Move(@"temp/lclassics.titlesdb", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/lclassics.titlesdb");
-                Directory.Delete("temp");
+                File.Move(@"temp/lclassics.titlesdb", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/lclassics.titlesdb");
+                Directory.Delete(@"temp");
 
-                string fileContent = File.ReadAllText("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/lclassics.titlesdb");
-                fileContent = fileContent.Remove(fileContent.Length - 2) + 
-                    " ,{\"sort_title\": \"" + SortTitleTextbox.Text + "\", " + 
-                    "\"publisher\": \"" + PublisherTextbox.Text + "\", " + 
-                    "\"code\": \"CLV-H-" + GamecodeTextbox.Text + "\", " + 
-                    "\"rom\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + ".nes\", " + 
-                    "\"copyright\": \"" + CopyrightTextbox.Text + "\", " + 
-                    "\"title\": \"" + GametitleTextbox.Text + "\", " + 
-                    "\"volume\": " + VolumeTextbox.Text + ", " + 
-                    "\"release_date\": \"1987-12-01\", " + 
-                    "\"players_count\": 1," + 
-                    "\"cover\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + ".xtx.z\"," + 
-                    "\"overscan\": [" + OverscanTextbox.Text + ", " + OverscanTextbox2.Text + ", " + OverscanTextbox3.Text + ", " + OverscanTextbox4.Text + "]," + 
-                    "\"armet_version\": \"v1\"," + 
-                    "\"lcla6_release_date\": \"2018-09-01\"," + 
-                    "\"save_count\": 0," + 
-                    "\"simultaneous\": " + SimultanusTextbox.Text + "," + 
-                    "\"fadein\": [" + FadeinTextbox.Text + ", " + FadeinTextbox2.Text + "]," + 
-                    "\"details_screen\": \"/titles/CLV-H-" + GamecodeTextbox.Text + "/CLV-H-" + GamecodeTextbox.Text + "00.xtx.z\"," + 
-                    "\"armet_threshold\": 80," + 
-                    "\"sort_publisher\": \"" + PublisherTextbox.Text + "\"" + "}]}";
-                File.WriteAllText("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/lclassics.titlesdb", fileContent);
+                if (SimultanusFalseRadioButton.Checked)
+                {
+                    string fileContent1 = File.ReadAllText("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/lclassics.titlesdb");
+                    fileContent1 = fileContent1.Remove(fileContent1.Length - 2) +
+                        " ,{\"sort_title\": \"" + SortTitleTextbox.Text + "\", " +
+                        "\"publisher\": \"" + PublisherTextbox.Text + "\", " +
+                        "\"code\": \"CLV-G-" + GamecodeTextbox.Text + "\", " +
+                        "\"rom\": \"/titles/CLV-G-" + GamecodeTextbox.Text + "/CLV-G-" + GamecodeTextbox.Text + ".nes\", " +
+                        "\"copyright\": \"" + CopyrightTextbox.Text + "\", " +
+                        "\"title\": \"" + GametitleTextbox.Text + "\", " +
+                        "\"volume\": " + VolumeTextbox.Text + ", " +
+                        "\"release_date\": \"1987-12-01\", " +
+                        "\"players_count\": 1," +
+                        "\"cover\": \"/titles/CLV-G-" + GamecodeTextbox.Text + "/CLV-G-" + GamecodeTextbox.Text + ".xtx.z\"," +
+                        "\"overscan\": [" + OverscanTextbox.Text + ", " + OverscanTextbox2.Text + ", " + OverscanTextbox3.Text + ", " + OverscanTextbox4.Text + "]," +
+                        "\"armet_version\": \"v1\"," +
+                        "\"lcla6_release_date\": \"2018-09-01\"," +
+                        "\"save_count\": 0," +
+                        "\"simultaneous\": false," +
+                        "\"fadein\": [" + FadeinTextbox.Text + ", " + FadeinTextbox2.Text + "]," +
+                        "\"details_screen\": \"/titles/CLV-G-" + GamecodeTextbox.Text + "/CLV-G-" + GamecodeTextbox.Text + "00.xtx.z\"," +
+                        "\"armet_threshold\": 80," +
+                        "\"sort_publisher\": \"" + PublisherTextbox.Text + "\"" + "}]}";
+                    File.WriteAllText("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/lclassics.titlesdb", fileContent1);
+                };
+                if (SimultanusTrueRadioButton.Checked)
+                {
+                    string fileContent2 = File.ReadAllText("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/lclassics.titlesdb");
+                    fileContent2 = fileContent2.Remove(fileContent2.Length - 2) +
+                        " ,{\"sort_title\": \"" + SortTitleTextbox.Text + "\", " +
+                        "\"publisher\": \"" + PublisherTextbox.Text + "\", " +
+                        "\"code\": \"CLV-G-" + GamecodeTextbox.Text + "\", " +
+                        "\"rom\": \"/titles/CLV-G-" + GamecodeTextbox.Text + "/CLV-G-" + GamecodeTextbox.Text + ".nes\", " +
+                        "\"copyright\": \"" + CopyrightTextbox.Text + "\", " +
+                        "\"title\": \"" + GametitleTextbox.Text + "\", " +
+                        "\"volume\": " + VolumeTextbox.Text + ", " +
+                        "\"release_date\": \"1987-12-01\", " +
+                        "\"players_count\": 1," +
+                        "\"cover\": \"/titles/CLV-G-" + GamecodeTextbox.Text + "/CLV-G-" + GamecodeTextbox.Text + ".xtx.z\"," +
+                        "\"overscan\": [" + OverscanTextbox.Text + ", " + OverscanTextbox2.Text + ", " + OverscanTextbox3.Text + ", " + OverscanTextbox4.Text + "]," +
+                        "\"armet_version\": \"v1\"," +
+                        "\"lcla6_release_date\": \"2018-09-01\"," +
+                        "\"save_count\": 0," +
+                        "\"simultaneous\": true," +
+                        "\"fadein\": [" + FadeinTextbox.Text + ", " + FadeinTextbox2.Text + "]," +
+                        "\"details_screen\": \"/titles/CLV-G-" + GamecodeTextbox.Text + "/CLV-G-" + GamecodeTextbox.Text + "00.xtx.z\"," +
+                        "\"armet_threshold\": 80," +
+                        "\"sort_publisher\": \"" + PublisherTextbox.Text + "\"" + "}]}";
+                    File.WriteAllText("NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/lclassics.titlesdb", fileContent2);
+                };
             }
             InjectCompleted();
         }
