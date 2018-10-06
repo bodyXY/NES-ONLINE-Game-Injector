@@ -304,14 +304,10 @@ namespace NES_Online_Game_Injector
                 MessageBox.Show("Invalid Cover path 400x300", "Error.", MessageBoxButtons.OK);
                 return;
             }
-
-            else if (JPCheckbox.Checked)
+            else if (Coverpath2Textbox.Text == string.Empty)
             {
-                if (Coverpath2Textbox.Text == string.Empty)
-                {
-                    MessageBox.Show("Invalid Cover path 355x512", "Error.", MessageBoxButtons.OK);
-                    return;
-                }
+                MessageBox.Show("Invalid Cover path 355x512", "Error.", MessageBoxButtons.OK);
+                return;
             }
 
             else if (TitledbTextbox.Text == string.Empty)
@@ -426,7 +422,7 @@ namespace NES_Online_Game_Injector
                 Directory.CreateDirectory("temp");
 
                 File.Copy(@Coverpath1Textbox.Text, "temp/cover.tga");
-                File.Copy(@Coverpath1Textbox.Text, "temp/screenshot.tga");
+                File.Copy(@Coverpath2Textbox.Text, "temp/screenshot.tga");
 
                 string filecheck9 = "cover.tga";
                 if (File.Exists(filecheck9))
