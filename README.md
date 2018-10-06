@@ -1,5 +1,5 @@
 # NES-ONLINE-Game-AutoInjector
-![noga_2 5 0](https://user-images.githubusercontent.com/43298952/46540311-3ba56480-c8b9-11e8-917f-6198856393c3.png)
+![noga_2 8 0](https://user-images.githubusercontent.com/43298952/46572279-60fea500-c983-11e8-9a33-c46aba761fc3.png)
 
 - You need the NvnTexpkg.package
 - Extract NvnTexpkg.package into the same folder like NES-Online-Game-Autoinjector
@@ -35,3 +35,13 @@ Update 2.0.1
 Update 2.5.0
 
 - Add FAMICOM-Support (NES ONLINE JP Version)
+
+Update 2.8.0
+
+- Add Details-Picture to EU/US Version
+- Add false/true radio-button
+- Add new Game Code outset
+- Textbox jump is fixed
+- Input methods revised for error minimization
+- More background checks for error minimization
+- Bug fixes
