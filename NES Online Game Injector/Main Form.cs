@@ -5,6 +5,8 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Diagnostics;
 using System.Linq;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace NES_Online_Game_Injector
 {
@@ -410,6 +412,9 @@ namespace NES_Online_Game_Injector
                 Directory.Delete(@"temp");
             }
 
+
+
+
             if (JPCheckbox.Checked == false)
             {
                 Directory.CreateDirectory("NES_ONLINE_Mod");
@@ -443,12 +448,12 @@ namespace NES_Online_Game_Injector
                 Nconvert.RunCommand($"-i screenshot.tga -o screenshot.xtx --mip-filter box --minmip 5 -f rgba8");
 
                 Zconvert.RunCommand($"cover.xtx");
-                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + ".xtx.z");
+                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + "00.xtx.z");
                 File.Delete(@"cover.xtx");
                 File.Delete(@"cover.xtx.zlib");
 
                 Zconvert.RunCommand($"screenshot.xtx");
-                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + "00.xtx.z");
+                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100D870045B6000/romfs/titles/HLV-C-" + GamecodeTextbox.Text + "\\" + "HLV-C-" + GamecodeTextbox.Text + ".xtx.z");
                 File.Delete(@"screenshot.xtx");
                 File.Delete(@"screenshot.xtx.zlib");
 
@@ -534,12 +539,12 @@ namespace NES_Online_Game_Injector
                 Nconvert.RunCommand($"-i screenshot.tga -o screenshot.xtx --mip-filter box --minmip 5 -f rgba8");
 
                 Zconvert.RunCommand($"cover.xtx");
-                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".xtx.z");
+                File.Copy(@"cover.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + "00.xtx.z");
                 File.Delete(@"cover.xtx");
                 File.Delete(@"cover.xtx.zlib");
 
                 Zconvert.RunCommand($"screenshot.xtx");
-                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + "00.xtx.z");
+                File.Copy(@"screenshot.xtx.zlib", "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/titles/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".xtx.z");
                 File.Delete(@"screenshot.xtx");
                 File.Delete(@"screenshot.xtx.zlib");
 

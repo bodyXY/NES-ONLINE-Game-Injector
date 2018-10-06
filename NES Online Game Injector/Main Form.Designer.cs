@@ -121,12 +121,12 @@
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel11.Location = new System.Drawing.Point(69, 146);
+            this.materialLabel11.Location = new System.Drawing.Point(65, 146);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
-            this.materialLabel11.Size = new System.Drawing.Size(87, 19);
+            this.materialLabel11.Size = new System.Drawing.Size(91, 19);
             this.materialLabel11.TabIndex = 0;
-            this.materialLabel11.Text = "Game Code";
+            this.materialLabel11.Text = "Game Code:";
             // 
             // materialLabel1
             // 
@@ -134,12 +134,12 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(83, 179);
+            this.materialLabel1.Location = new System.Drawing.Point(79, 179);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(73, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(77, 19);
             this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "Copyright";
+            this.materialLabel1.Text = "Copyright:";
             // 
             // materialLabel2
             // 
@@ -186,12 +186,12 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(99, 311);
+            this.materialLabel5.Location = new System.Drawing.Point(95, 311);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(57, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(61, 19);
             this.materialLabel5.TabIndex = 0;
-            this.materialLabel5.Text = "Fade In";
+            this.materialLabel5.Text = "Fade In:";
             // 
             // materialLabel6
             // 

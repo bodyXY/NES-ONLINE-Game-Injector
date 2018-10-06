@@ -28,7 +28,7 @@
     <ProductName>NES ONLINE Game Autoinjector</ProductName>
     <PublisherName>bodyXY</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.8.0.%2a</ApplicationVersion>
+    <ApplicationVersion>2.8.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
