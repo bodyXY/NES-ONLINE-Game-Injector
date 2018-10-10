@@ -1,5 +1,5 @@
 # NES-ONLINE-Game-AutoInjector
-![noga_2_8_1](https://user-images.githubusercontent.com/43298952/46575611-c02adc80-c9b8-11e8-802d-0ad991087013.png)
+![3 0](https://user-images.githubusercontent.com/43298952/46750761-ff0eaa00-ccb8-11e8-8f05-6b0c973fc535.png)
 
 - You need the NvnTexpkg.package
 - Extract NvnTexpkg.package into the same folder like NES-Online-Game-Autoinjector
@@ -21,20 +21,16 @@ Legend:
 
 Output folder: (NES-Online-Game-Autoinjector).path/NES_ONLINE_MOD
 
-Update 2.0
+Update 3.0
 
-- Add ToolTip
-- Add Game code verification
-- Bug fixes
-- and more background stuff
-
-Update 2.0.1
-
+- Add Cover-Preview
+- Implement TGA Sharp Lib (MIT License https://github.com/ALEXGREENALEX/TGASharpLib credit to: ALEXGREENALEX)
+- New-Design
 - Bug fixes
 
-Update 2.5.0
+Update 2.8.1
 
-- Add FAMICOM-Support (NES ONLINE JP Version)
+- Bug fixes
 
 Update 2.8.0
 
@@ -46,6 +42,17 @@ Update 2.8.0
 - More background checks for error minimization
 - Bug fixes
 
-Update 2.8.1
+Update 2.5.0
+
+- Add FAMICOM-Support (NES ONLINE JP Version)
+
+Update 2.0.1
 
 - Bug fixes
+
+Update 2.0
+
+- Add ToolTip
+- Add Game code verification
+- Bug fixes
+- and more background stuff
