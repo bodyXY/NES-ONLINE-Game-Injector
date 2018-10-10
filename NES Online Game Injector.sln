@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NES Online Game Injector", "NES Online Game Injector\NES Online Game Injector.csproj", "{94D9515A-6B0A-4028-AA5B-2C3FD84A04FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{12B52470-A1D6-4F86-83AB-A90F77AB7276}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\TGASharpLib-master\TGASharpLib-master\PictureBoxExt\PictureBoxExt.cs = ..\..\..\Downloads\TGASharpLib-master\TGASharpLib-master\PictureBoxExt\PictureBoxExt.cs
+		..\..\..\Downloads\TGASharpLib-master\TGASharpLib-master\TGASharpLib\TGASharpLib.cs = ..\..\..\Downloads\TGASharpLib-master\TGASharpLib-master\TGASharpLib\TGASharpLib.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

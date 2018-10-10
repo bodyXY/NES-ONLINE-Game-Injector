@@ -28,7 +28,7 @@
     <ProductName>NES ONLINE Game Autoinjector</ProductName>
     <PublisherName>bodyXY</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.8.5.%2a</ApplicationVersion>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -78,8 +78,12 @@
       <DependentUpon>Main Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Nvntexpkg.cs" />
+    <Compile Include="PictureBoxExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TGASharpLib.cs" />
     <Compile Include="Zdrop.cs" />
     <EmbeddedResource Include="Main Form.resx">
       <DependentUpon>Main Form.cs</DependentUpon>
@@ -123,6 +127,7 @@
   <ItemGroup>
     <Content Include="noga.icon.ico" />
     <Content Include="nogaicon.ico" />
+    <Content Include="PictureBox_Ext.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

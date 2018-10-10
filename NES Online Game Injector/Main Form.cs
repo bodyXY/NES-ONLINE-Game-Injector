@@ -5,8 +5,10 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Diagnostics;
 using System.Linq;
-using System.Drawing;
+using TGASharpLib;
 using System.Drawing.Imaging;
+using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace NES_Online_Game_Injector
 {
@@ -87,6 +89,7 @@ namespace NES_Online_Game_Injector
                 GamepathTextbox.Text = GameBrowse.FileName;
         }
 
+        TGA T;
         private void Coverpath1BrowseButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog Coverpath1Browse = new OpenFileDialog();
@@ -96,6 +99,61 @@ namespace NES_Online_Game_Injector
 
             if (Coverpath1Browse.ShowDialog() == DialogResult.OK)
                 Coverpath1Textbox.Text = Coverpath1Browse.FileName;
+
+            string TgaPicture = Coverpath1Browse.FileName;
+            if (File.Exists(TgaPicture))
+            {
+                T = new TGA(TgaPicture);
+                ShowTga();
+            }
+        }
+
+        void ShowTga()
+        {
+            Bitmap BMP = (Bitmap)T;
+            Bitmap Thumb = T.GetPostageStampImage();
+            
+            if (BMP.PixelFormat == PixelFormat.Format16bppGrayScale)
+            {
+                BMP = Gray16To8bppIndexed(BMP);
+                if (Thumb != null)
+                    Thumb = Gray16To8bppIndexed(Thumb);
+            }
+
+            PreviewBoxExt.Image = BMP;
+        }
+
+        public Bitmap Gray16To8bppIndexed(Bitmap BmpIn)
+        {
+            if (BmpIn.PixelFormat != PixelFormat.Format16bppGrayScale)
+                throw new BadImageFormatException();
+
+            byte[] ImageData = new byte[BmpIn.Width * BmpIn.Height * 2];
+            Rectangle Re = new Rectangle(0, 0, BmpIn.Width, BmpIn.Height);
+
+            BitmapData BmpData = BmpIn.LockBits(Re, ImageLockMode.ReadOnly, BmpIn.PixelFormat);
+            Marshal.Copy(BmpData.Scan0, ImageData, 0, ImageData.Length);
+            BmpIn.UnlockBits(BmpData);
+
+            byte[] ImageData2 = new byte[BmpIn.Width * BmpIn.Height];
+            for (long i = 0; i < ImageData2.LongLength; i++)
+                ImageData2[i] = ImageData[i * 2 + 1];
+            ImageData = null;
+
+            Bitmap BmpOut = new Bitmap(BmpIn.Width, BmpIn.Height, PixelFormat.Format8bppIndexed);
+            BmpData = BmpOut.LockBits(Re, ImageLockMode.WriteOnly, BmpOut.PixelFormat);
+            Marshal.Copy(ImageData2, 0, BmpData.Scan0, ImageData2.Length);
+            BmpOut.UnlockBits(BmpData);
+            ImageData2 = null;
+            BmpData = null;
+
+            ColorPalette GrayPalette = BmpOut.Palette;
+            Color[] GrayColors = GrayPalette.Entries;
+            for (int i = 0; i < GrayColors.Length; i++)
+                GrayColors[i] = Color.FromArgb(i, i, i);
+            BmpOut.Palette = GrayPalette;
+
+            return BmpOut;
         }
 
         private void Coverpath2BrowseButton_Click_1(object sender, EventArgs e)
@@ -119,9 +177,7 @@ namespace NES_Online_Game_Injector
             if (TitledbBrowse.ShowDialog() == DialogResult.OK)
                 TitledbTextbox.Text = TitledbBrowse.FileName;
         }
-
-
-
+        
         private void GamecodeTextbox_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(GamecodeTextbox.Text, "[^A-Z]"))
@@ -412,9 +468,6 @@ namespace NES_Online_Game_Injector
                 Directory.Delete(@"temp");
             }
 
-
-
-
             if (JPCheckbox.Checked == false)
             {
                 Directory.CreateDirectory("NES_ONLINE_Mod");
@@ -612,8 +665,8 @@ namespace NES_Online_Game_Injector
             }
             InjectCompleted();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        
+        private void SuppoertLabel_Click(object sender, EventArgs e)
         {
             Process.Start("https://discord.gg/8mNFFcC");
         }
