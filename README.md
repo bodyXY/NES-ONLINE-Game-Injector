@@ -1,9 +1,9 @@
 # NES-ONLINE-Game-AutoInjector
-![3 0](https://user-images.githubusercontent.com/43298952/46750761-ff0eaa00-ccb8-11e8-8f05-6b0c973fc535.png)
+![noga_3 5](https://user-images.githubusercontent.com/43298952/46807664-c29b8680-cd6a-11e8-9010-7ec49169087d.png)
 
 - You need the NvnTexpkg.package
 - Extract NvnTexpkg.package into the same folder like NES-Online-Game-Autoinjector
-- You have to create two TGA images in 32bit, once witch a size of 300x400 and another in the size of 355x512 (use Photoshop or whatever you want)
+- You have to create two TGA images in 32bit, once witch a size of 400x300 and another in the size of 355x512 (use Photoshop or whatever you want)
 - Also, you need your "lclassics.titlesdb" file
 
 
@@ -20,6 +20,11 @@ Legend:
 - Volume = "a number between 0 and 99"
 
 Output folder: (NES-Online-Game-Autoinjector).path/NES_ONLINE_MOD
+
+Update 3.5
+
+- Add PNG / JPG Support (auto-convert PNG/JPG to TGA)
+- Bug fixes
 
 Update 3.0
 
