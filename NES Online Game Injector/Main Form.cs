@@ -16,6 +16,7 @@ namespace NES_Online_Game_Injector
     {
         Nvntexpkg Nconvert;
         Zdrop Zconvert;
+        TGA T;
 
         public Form1()
         {
@@ -65,7 +66,7 @@ namespace NES_Online_Game_Injector
 
         private void infoSimultanus_Click(object sender, EventArgs e)
         {
-            toolTipSimultanus.SetToolTip(infoSimultanus, "Enter the simultanus (true or false) for the game\r\nExample of Mario Bros simultanus: true\r\nExample of Super Mario Bros simultanus: false");
+            toolTipSimultanus.SetToolTip(infoSimultanus, "Enter the simultaneous (true or false) for the game\r\nExample of Mario Bros simultaneous: true\r\nExample of Super Mario Bros simultaneous: false");
         }
 
         private void infoFadein_Click(object sender, EventArgs e)
@@ -88,31 +89,50 @@ namespace NES_Online_Game_Injector
             if (GameBrowse.ShowDialog() == DialogResult.OK)
                 GamepathTextbox.Text = GameBrowse.FileName;
         }
-
-        TGA T;
+        
         private void Coverpath1BrowseButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog Coverpath1Browse = new OpenFileDialog();
             Coverpath1Browse.Title = "Browse for Cover";
-            Coverpath1Browse.Filter = "TGA File (*.tga*)|*.tga*";
+            Coverpath1Browse.Filter = "Cover File (*.tga*, *.png*, *.jpg*)|*.tga*; *.png*; *.jpg*";
             Coverpath1Browse.FilterIndex = 1;
 
             if (Coverpath1Browse.ShowDialog() == DialogResult.OK)
                 Coverpath1Textbox.Text = Coverpath1Browse.FileName;
+        }
 
-            string TgaPicture = Coverpath1Browse.FileName;
-            if (File.Exists(TgaPicture))
+        private void Coverpath2BrowseButton_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog Coverpath2Browse = new OpenFileDialog();
+            Coverpath2Browse.Title = "Browse for Cover";
+            Coverpath2Browse.Filter = "Cover File (*.tga*, *.png*, *.jpg*)|*.tga*; *.png*; *.jpg*";
+            Coverpath2Browse.FilterIndex = 1;
+
+            if (Coverpath2Browse.ShowDialog() == DialogResult.OK)
+                Coverpath2Textbox.Text = Coverpath2Browse.FileName;
+
+
+            string Preview = @Coverpath2Textbox.Text;
+            string tga = Path.GetExtension(Preview);
+            if (tga == ".tga")
             {
-                T = new TGA(TgaPicture);
+                    T = new TGA(Preview);
+                    ShowTga();
+            }
+            else
+            {
+                using (Bitmap original = new Bitmap(@Coverpath2Textbox.Text))
+                using (Bitmap clone = new Bitmap(original))
+                using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                    T = (TGA)newbmp;
                 ShowTga();
             }
         }
-
         void ShowTga()
         {
             Bitmap BMP = (Bitmap)T;
             Bitmap Thumb = T.GetPostageStampImage();
-            
+
             if (BMP.PixelFormat == PixelFormat.Format16bppGrayScale)
             {
                 BMP = Gray16To8bppIndexed(BMP);
@@ -122,7 +142,6 @@ namespace NES_Online_Game_Injector
 
             PreviewBoxExt.Image = BMP;
         }
-
         public Bitmap Gray16To8bppIndexed(Bitmap BmpIn)
         {
             if (BmpIn.PixelFormat != PixelFormat.Format16bppGrayScale)
@@ -154,17 +173,6 @@ namespace NES_Online_Game_Injector
             BmpOut.Palette = GrayPalette;
 
             return BmpOut;
-        }
-
-        private void Coverpath2BrowseButton_Click_1(object sender, EventArgs e)
-        {
-            OpenFileDialog Coverpath2Browse = new OpenFileDialog();
-            Coverpath2Browse.Title = "Browse for Cover";
-            Coverpath2Browse.Filter = "TGA File (*.tga*)|*.tga*";
-            Coverpath2Browse.FilterIndex = 1;
-
-            if (Coverpath2Browse.ShowDialog() == DialogResult.OK)
-                Coverpath2Textbox.Text = Coverpath2Browse.FileName;
         }
 
         private void TitledbBrowseButton_Click(object sender, EventArgs e)
@@ -367,12 +375,12 @@ namespace NES_Online_Game_Injector
                 MessageBox.Show("Invalid Cover path 355x512", "Error.", MessageBoxButtons.OK);
                 return;
             }
-
             else if (TitledbTextbox.Text == string.Empty)
             {
                 MessageBox.Show("Invalid Title DB path", "Error.", MessageBoxButtons.OK);
                 return;
             }
+
             string line;
             using (StreamReader CheckGamecode = new StreamReader(TitledbTextbox.Text))
 
@@ -420,13 +428,14 @@ namespace NES_Online_Game_Injector
                     MessageBox.Show("Cover file 355x512 " + GamecodeTextbox.Text + " already exist", "Error");
                     return;
                 }
-                string filecheck24 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".nes";
-                if (File.Exists(filecheck24))
+                string filecheck25 = "NES_ONLINE_Mod/titles/0100B4E00444C000/romfs/CLV-G-" + GamecodeTextbox.Text + "\\" + "CLV-G-" + GamecodeTextbox.Text + ".nes";
+                if (File.Exists(filecheck25))
                 {
                 MessageBox.Show("Game file " + GamecodeTextbox.Text + " already exist in the TitleDB", "Error");
                 return;
                 }
             }
+
             string filecheck1 = "cover.xtx";
             if (File.Exists(filecheck1))
             {
@@ -479,8 +488,59 @@ namespace NES_Online_Game_Injector
 
                 Directory.CreateDirectory("temp");
 
-                File.Copy(@Coverpath1Textbox.Text, "temp/cover.tga");
-                File.Copy(@Coverpath2Textbox.Text, "temp/screenshot.tga");
+                string FileFormat1 = @Coverpath1Textbox.Text;
+                string tga0 = Path.GetExtension(FileFormat1);
+                if (tga0 == ".tga")
+                {
+                    File.Copy(@Coverpath1Textbox.Text, "temp/cover.tga");
+                }
+                string FileFormat = @Coverpath1Textbox.Text;
+                string tga = Path.GetExtension(FileFormat);
+                if (tga == ".jpg")
+                {
+                    using (Bitmap original = new Bitmap(@Coverpath1Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/cover.tga");
+                }
+                string FileFormat2 = @Coverpath1Textbox.Text;
+                string tga1 = Path.GetExtension(FileFormat2);
+                if (tga1 == ".png")
+                {
+                    using (Bitmap original = new Bitmap(@Coverpath1Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/cover.tga");
+                }
+
+                string FileFormat00 = @Coverpath2Textbox.Text;
+                string tga00 = Path.GetExtension(FileFormat00);
+                if (tga00 == ".tga")
+                {
+                    File.Copy(@Coverpath2Textbox.Text, "temp/screenshot.tga");
+                }
+                string FileFormat3 = @Coverpath2Textbox.Text;
+                string tga3 = Path.GetExtension(FileFormat3);
+                if (tga3 == ".jpg")
+                {
+                    using (Bitmap original = new Bitmap(@Coverpath2Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/screenshot.tga");
+                }
+                string FileFormat4 = @Coverpath2Textbox.Text;
+                string tga4 = Path.GetExtension(FileFormat4);
+                if (tga4 == ".png")
+                {
+                    using (Bitmap original = new Bitmap(Coverpath2Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/screenshot.tga");
+                }
 
                 string filecheck9 = "cover.tga";
                 if (File.Exists(filecheck9))
@@ -570,8 +630,59 @@ namespace NES_Online_Game_Injector
 
                 Directory.CreateDirectory("temp");
 
-                File.Copy(@Coverpath1Textbox.Text, "temp/cover.tga");
-                File.Copy(@Coverpath2Textbox.Text, "temp/screenshot.tga");
+                string FileFormat1 = @Coverpath1Textbox.Text;
+                string tga0 = Path.GetExtension(FileFormat1);
+                if (tga0 == ".tga")
+                {
+                    File.Copy(@Coverpath1Textbox.Text, "temp/cover.tga");
+                }
+                string FileFormat = @Coverpath1Textbox.Text;
+                string tga = Path.GetExtension(FileFormat);
+                if (tga == ".jpg")
+                {
+                    using (Bitmap original = new Bitmap(@Coverpath1Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/cover.tga");
+                }
+                string FileFormat2 = @Coverpath1Textbox.Text;
+                string tga1 = Path.GetExtension(FileFormat2);
+                if (tga1 == ".png")
+                {
+                    using (Bitmap original = new Bitmap(@Coverpath1Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/cover.tga");
+                }
+
+                string FileFormat00 = @Coverpath2Textbox.Text;
+                string tga00 = Path.GetExtension(FileFormat00);
+                if (tga00 == ".tga")
+                {
+                    File.Copy(@Coverpath2Textbox.Text, "temp/screenshot.tga");
+                }
+                string FileFormat3 = @Coverpath2Textbox.Text;
+                string tga3 = Path.GetExtension(FileFormat3);
+                if (tga3 == ".jpg")
+                {
+                    using (Bitmap original = new Bitmap(@Coverpath2Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/screenshot.tga");
+                }
+                string FileFormat4 = @Coverpath2Textbox.Text;
+                string tga4 = Path.GetExtension(FileFormat4);
+                if (tga4 == ".png")
+                {
+                    using (Bitmap original = new Bitmap(Coverpath2Textbox.Text))
+                    using (Bitmap clone = new Bitmap(original))
+                    using (Bitmap newbmp = clone.Clone(new Rectangle(0, 0, clone.Width, clone.Height), PixelFormat.Format32bppArgb))
+                        T = (TGA)newbmp;
+                    T.Save("temp/screenshot.tga");
+                }
 
                 string filecheck9 = "cover.tga";
                 if (File.Exists(filecheck9))
